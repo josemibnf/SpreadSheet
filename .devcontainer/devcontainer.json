@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.117.0/containers/java-8
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.117.1/containers/java-8
 {
 	"name": "Java 8",
 	"dockerFile": "Dockerfile",

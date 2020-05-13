@@ -1,4 +1,6 @@
-public abstract class MaybeValue implements Expression{
+package main;
+
+public abstract class MaybeValue implements Expression {
 
     public abstract boolean hasValue();
     

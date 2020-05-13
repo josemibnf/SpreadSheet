@@ -1,16 +1,18 @@
-import static src.spreadsheet.*;
-//mas imports
+package java;
 
 import java.beans.Transient;
 
-public class SpreadSheetTest{
+import org.junit.Before;
+import org.junit.Test;
 
-    @BeforeEach
+public class SpreadSheetTest {
+
+    @Before
     public void setUpSheet() {
         put("a3", mult("a1", "a2"));
     }    
 
-    @BeforeEach
+    @Before
     public void cell_has_no_value_if_depends_on_empty_cells() {
         assertFalse( get("a3").hasValue());
     }

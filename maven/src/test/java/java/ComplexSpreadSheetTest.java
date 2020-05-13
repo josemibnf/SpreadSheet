@@ -1,11 +1,12 @@
-import static spreadsheet.SpreadSheet.*;
-//y demas imports ...
+package java;
 
 import java.beans.Transient;
 
+import org.junit.*;
+
 public class ComplexSpreadSheetTest {
 
-    @BeforeEach
+    @Before
     public void setUp() {
         put("c1", mult("a1", "b1")); 
         put("c2", mult("a2", "b2")); 
@@ -26,7 +27,7 @@ public class ComplexSpreadSheetTest {
         assertEquals(new SomeValue(1600), get("c3")); 
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         clear();
     }
