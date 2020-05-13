@@ -1,4 +1,5 @@
 import java.expressions.exp1;
+import java.expressions.expSS;
 
 public class SpreadSheet {
 
@@ -89,7 +90,7 @@ public class SpreadSheet {
     }
 
     public static Expression mult(String ref1, String ref2) {
-        return new exp1(ref1, ref2, "*");
+        return new expSS(ref1, ref2, "*");
     }
 
 
