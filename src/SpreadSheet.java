@@ -8,80 +8,88 @@ public class SpreadSheet {
     }
 
     public static Expression plus(Expression expr1, String ref2) {
+        return expr1;
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
     }
 
     public static Expression plus(int value1, Expression expr2) {
-
-    }
-
-    public static Expression plus(int value1, Expression expr2) {
+        return expr2;
 
     }
 
     public static Expression plus(int value1, int value2) {
+        return null;
 
     }
 
     public static Expression plus(int value1, String ref2) {
+        return null;
 
     }
 
     public static Expression plus(String ref1, Expression expr2) {
+        return expr2;
 
     }
 
     public static Expression plus(String ref1, int value2) {
+        return null;
 
     }
 
     public static Expression plus(String ref1, String ref2) {
+        return null;
 
     }
 
     public static Expression mult(Expression expr1, Expression expr2) {
+        return expr2;
         // Crea i retorna una expressió corresponent a la
         // suma de les dues subexpressions
     }
 
     public static Expression mult(Expression expr1, String ref2) {
+        return expr1;
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
     }
 
     public static Expression mult(int value1, Expression expr2) {
-
-    }
-
-    public static Expression mult(int value1, Expression expr2) {
+        return expr2;
 
     }
 
     public static Expression mult(int value1, int value2) {
+        return null;
 
     }
 
     public static Expression mult(int value1, String ref2) {
+        return null;
 
     }
 
     public static Expression mult(String ref1, Expression expr2) {
+        return expr2;
 
     }
 
     public static Expression mult(String ref1, int value2) {
+        return null;
 
     }
 
     public static Expression mult(String ref1, String ref2) {
+        return null;
 
     }
 
 
     public static MaybeValue get(String name) {
+        return null;
         // Retorna el valor que potser hi ha a la cel·la
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
