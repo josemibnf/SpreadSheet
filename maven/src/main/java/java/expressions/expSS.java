@@ -19,6 +19,8 @@ public final class expSS implements Expression{
 
     private void updateReferences(){
         references.clear();
+        references.add(ref1);
+        references.add(ref2);
         references.addAll(ref1.getFormula().getReferences());
         references.addAll(ref2.getFormula().getReferences());
     }
