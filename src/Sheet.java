@@ -1,7 +1,7 @@
 public class Sheet {
     // Esta es la clase Reference ¿??
 
-	public Sheet(int sIZE) {
+	public Sheet(int SIZE) {
 	}
 
     public void Reference(Cell ref) {
