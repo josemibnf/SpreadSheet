@@ -2,7 +2,7 @@ package java.expressions;
 
 import java.Cell;
 import java.Sheet;
-import java.Expression;
+import java.expressions.Expression;
 import java.util.Set;
 
 public final class expSS implements Expression{

@@ -1,4 +1,4 @@
-package java;
+package java.value;
 
 public abstract class MaybeValue implements Expression {
 
