@@ -3,6 +3,7 @@ public class SpreadSheet {
     private static final Sheet SHEET = new Sheet(SIZE);
 
     public static Expression plus(Expression expr1, Expression expr2) {
+        return expr2;
         // Crea i retorna una expressió corresponent a la
         // suma de les dues subexpressions
     }
