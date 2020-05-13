@@ -41,7 +41,45 @@ public class SpreadSheet {
 
     }
 
-    // El mateix per a totes les combinacions de mult
+    public static Expression mult(Expression expr1, Expression expr2) {
+        // Crea i retorna una expressió corresponent a la
+        // suma de les dues subexpressions
+    }
+
+    public static Expression mult(Expression expr1, String ref2) {
+        // Crea i retorna una expressió corresponent a la
+        // suma de expr1 i de l’expressió que representa
+        // una referència a la cel·la amb nom ref2
+    }
+
+    public static Expression mult(int value1, Expression expr2) {
+
+    }
+
+    public static Expression mult(int value1, Expression expr2) {
+
+    }
+
+    public static Expression mult(int value1, int value2) {
+
+    }
+
+    public static Expression mult(int value1, String ref2) {
+
+    }
+
+    public static Expression mult(String ref1, Expression expr2) {
+
+    }
+
+    public static Expression mult(String ref1, int value2) {
+
+    }
+
+    public static Expression mult(String ref1, String ref2) {
+
+    }
+
 
     public static MaybeValue get(String name) {
         // Retorna el valor que potser hi ha a la cel·la
