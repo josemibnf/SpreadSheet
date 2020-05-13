@@ -13,5 +13,9 @@ public class Cell {
     public void set(Expression exp){
 
     }
+
+    public Expression getFormula() {
+        return this.formula;
+    }
     
 }

@@ -1,3 +1,5 @@
+import java.expressions.exp1;
+
 public class SpreadSheet {
 
     // Con esta clase seguimos el patron Fachada.
@@ -87,8 +89,7 @@ public class SpreadSheet {
     }
 
     public static Expression mult(String ref1, String ref2) {
-        return null;
-
+        return new exp1(ref1, ref2, "*");
     }
 
 
