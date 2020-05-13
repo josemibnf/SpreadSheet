@@ -1,4 +1,7 @@
 public class SpreadSheet {
+
+    // Con esta clase seguimos el patron Fachada.
+
     private static int SIZE = 5;
     private static final Sheet SHEET = new Sheet(SIZE);
 
