@@ -11,11 +11,10 @@ public class Cell {
     }
 
     public void set(Expression exp){
-
+        this.formula=exp;
     }
 
     public Expression getFormula() {
         return this.formula;
     }
-    
 }

@@ -107,6 +107,7 @@ public class SpreadSheet {
         // Això provocarà l’avaluació de la cel·la (la
         // qual cosa pot propagar la avaluació a d’altres
         // cel·les)
+        Sheet.getCell(name).set(expr);
     }
 
     public static void put(String name, int value) {
