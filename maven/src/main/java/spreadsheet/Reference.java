@@ -20,6 +20,7 @@ public class Reference implements Expression {
     public Set<Cell> references() {
         Set<Cell> set = new HashSet<Cell>();
         set.add(ref);
+        set.addAll(ref.getFormula().references());
         return set;
     }
 }

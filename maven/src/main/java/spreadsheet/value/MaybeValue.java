@@ -15,6 +15,3 @@ public abstract class MaybeValue implements Expression{
     }
     
 }
-
-//si	considereu	els	MaybeValues	com	expressions,
-// podreu	simplificar	una	mica	el	problema.	

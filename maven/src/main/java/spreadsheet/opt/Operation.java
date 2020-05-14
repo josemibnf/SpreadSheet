@@ -32,6 +32,7 @@ public abstract class Operation implements Expression {
             SomeValue som1=(SomeValue)val1;
             SomeValue som2=(SomeValue)val2;
             return new SomeValue(operate(som1.getValue(), som2.getValue()));
+            
         }else{
             return NoValue.noValue();
         }
