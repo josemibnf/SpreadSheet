@@ -1,6 +1,8 @@
 package java.opt;
 
+import java.Cell;
 import java.Expression;
+import java.util.Set;
 
 public class Mult extends Operation {
 

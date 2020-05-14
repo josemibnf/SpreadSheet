@@ -1,5 +1,6 @@
 package java;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.value.MaybeValue;
 
@@ -17,8 +18,9 @@ public class Reference implements Expression {
     }
 
     @Override
-    public Set<Cell> getReferences() {
-        // TODO Auto-generated method stub
-        return null;
+    public Set<Cell> references() {
+        Set<Cell> set = new HashSet<Cell>();
+        set.add(ref);
+        return set;
     }
 }

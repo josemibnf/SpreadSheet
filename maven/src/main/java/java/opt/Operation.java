@@ -37,8 +37,7 @@ public abstract class Operation implements Expression {
     }
 
     @Override
-    public Set<Cell> getReferences() {
-        // TODO Auto-generated method stub
+    public Set<Cell> references() {
         return null;
     }
 
