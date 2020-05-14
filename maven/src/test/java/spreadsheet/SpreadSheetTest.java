@@ -19,14 +19,19 @@ public class SpreadSheetTest {
 
     @Before
     public void cell_has_no_value_if_depends_on_empty_cells() throws ThisCellNotExist {
+        put("a1", 42);
+        put("a2", 20);
         assertFalse(get("a3").hasValue());
     }
 
     @Test
     public void recalculation_works() throws ThisCellNotExist {
-        put("a1", 42);
-        put("a2", 20);
         assertEquals(new SomeValue(840), get("a3"));
+    }
+
+    @Test
+    public void recalculation_works_without_MaybeValue() throws ThisCellNotExist {
+        assertEquals(840, ((SomeValue) get("a3")).getValue());
     }
 
     @After
