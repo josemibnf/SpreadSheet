@@ -2,6 +2,7 @@ package java.opt;
 
 import java.Cell;
 import java.Expression;
+import java.util.HashSet;
 import java.util.Set;
 import java.value.MaybeValue;
 import java.value.NoValue;
@@ -38,7 +39,10 @@ public abstract class Operation implements Expression {
 
     @Override
     public Set<Cell> references() {
-        return null;
+        Set<Cell> set = new HashSet<Cell>();
+        set.addAll(exp1.references());
+        set.addAll(exp2.references());
+        return set;
     }
 
 }
