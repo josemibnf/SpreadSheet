@@ -1,8 +1,8 @@
 package java.opt;
 
-import java.expressions.Expression;
+import java.Expression;
 
-public abstract class Operation {
+public abstract class Operation implements Expression {
 
     public final Expression exp1;
     public final Expression exp2;

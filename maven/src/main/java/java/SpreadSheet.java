@@ -93,7 +93,7 @@ public class SpreadSheet {
     }
 
     public static Expression mult(String ref1, String ref2) {
-        return new expSS(ref1, ref2, "*");
+        return null;
     }
 
 
