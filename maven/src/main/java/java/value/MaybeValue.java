@@ -2,6 +2,7 @@ package java.value;
 
 import java.Cell;
 import java.Expression;
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class MaybeValue implements Expression{
@@ -10,7 +11,7 @@ public abstract class MaybeValue implements Expression{
 
     @Override
     public Set<Cell> references() {
-        return null;
+        return new HashSet<Cell>();
     }
     
 }
