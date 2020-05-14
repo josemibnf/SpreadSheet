@@ -11,8 +11,8 @@ public final class expSS implements Expression{
     private final Cell ref2;
 
     public expSS(String ref1, String ref2, String op){
-        this.ref1 = Sheet.getCell(ref1);
-        this.ref2= Sheet.getCell(ref2);
+        this.ref1 = SHEET.getCell(ref1);
+        this.ref2= SHEET.getCell(ref2);
         this.op = op;
         updateReferences();
     }

@@ -1,5 +1,6 @@
+package java;
+
 import java.expressions.Expression;
-import java.expressions.exp1;
 import java.expressions.expSS;
 import java.value.MaybeValue;
 
@@ -104,13 +105,13 @@ public class SpreadSheet {
         // SomeValue; si no hi ha, NoValue.
     }
 
-    public static void put(String name, Expression expr) {
+    public static void put(String name, Expression expr) throws ThisCellNotExist {
         // Assigna a la cel·la amb nom name l’expressió
         // expr.
         // Això provocarà l’avaluació de la cel·la (la
         // qual cosa pot propagar la avaluació a d’altres
         // cel·les)
-        Sheet.getCell(name).set(expr);
+        SHEET.getCell(name).set(expr);
     }
 
     public static void put(String name, int value) {

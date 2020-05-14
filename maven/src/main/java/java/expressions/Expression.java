@@ -1,18 +1,17 @@
 package java.expressions;
 
+import java.Cell;
 import java.util.Set;
 import java.value.MaybeValue;
 
 public interface Expression {
 
-    public final String op;
-
-    public MaybeValue evaluate();
+    public String op;
     
-    public final Set<Cell> references;  // Posee el conjunto de celdas que posee
+    public Set<Cell> references;  // Posee el conjunto de celdas que posee
                                  // la expresion, directa o inderectamente,
                                 // puede ser null.
-
+    public MaybeValue evaluate();
     public Set<Cell> getReferences();
 }
 

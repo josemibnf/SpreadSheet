@@ -1,13 +1,15 @@
 package java;
 
-import java.beans.Transient;
+import java.value.SomeValue;
+import static java.SpreadSheet.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 
 public class ComplexSpreadSheetTest {
 
     @Before
-    public void setUp() {
+    public void setUp() throws ThisCellNotExist {
         put("c1", mult("a1", "b1")); 
         put("c2", mult("a2", "b2")); 
         put("c3", plus("c1", "c2")); 

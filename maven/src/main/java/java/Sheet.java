@@ -29,12 +29,14 @@ public class Sheet {
 
     /**
      * Devuelve la celda correspondiente a ese identificador.
+     * 
      * @param ref
      * @return
+     * @throws ThisCellNotExist
      */
-    public Cell getCell(String ref) {
+    public Cell getCell(String ref) throws ThisCellNotExist {
         if (dontHaveThisCell(ref)){
-            throw new ThisCellNotExist("La celda referenciada no existe.")
+            throw new ThisCellNotExist("La celda referenciada no existe.");
         }
         return CellSheet.get(ref); // Buscamos la celda con esa referencia.
     }
