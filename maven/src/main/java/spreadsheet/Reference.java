@@ -13,8 +13,7 @@ public class Reference implements Expression {
 
     @Override
     public MaybeValue evaluate() {
-        // TODO Auto-generated method stub
-        return null;
+        return ref.evaluate();
     }
 
     @Override

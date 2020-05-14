@@ -1,12 +1,14 @@
 package spreadsheet;
 
 import spreadsheet.value.MaybeValue;
+import spreadsheet.value.NoValue;
 
 public class Cell {
 
     private Expression formula;
 
     public Cell() {
+        this.formula = NoValue.noValue();
     }
 
     /**

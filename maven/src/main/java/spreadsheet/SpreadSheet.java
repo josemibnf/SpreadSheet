@@ -1,6 +1,5 @@
 package spreadsheet;
 
-import spreadsheet.Expression;
 import spreadsheet.opt.Mult;
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.SomeValue;
