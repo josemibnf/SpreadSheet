@@ -1,7 +1,6 @@
 package java;
 
-import java.expressions.Expression;
-import java.expressions.expSS;
+import java.Expression;
 import java.value.MaybeValue;
 
 public class SpreadSheet {

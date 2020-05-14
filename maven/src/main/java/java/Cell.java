@@ -1,6 +1,6 @@
 package java;
 
-import java.expressions.Expression;
+import java.Expression;
 import java.value.MaybeValue;
 
 public class Cell {

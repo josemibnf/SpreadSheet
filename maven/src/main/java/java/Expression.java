@@ -1,4 +1,4 @@
-package java.expressions;
+package java;
 
 import java.Cell;
 import java.opt.Operation;
@@ -20,8 +20,3 @@ public interface Expression {
 }
 
 // Las clases deben de ser inmutables.
-
-// Cuantas clases concretas creamos para definir las expresiones ¿???¿
-    // Opcion 1:
-        // Una por cada combinacion de elementos.
-        // En ellas se especifica si es mult o plus.
