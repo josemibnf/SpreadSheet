@@ -11,18 +11,38 @@ public class Sheet {
 	public Sheet(int SIZE) {
         for (int i=0;i<SIZE; i++){
             for (int j=0; j<SIZE; j++){
-                CellSheet.put(, new Cell());
+                CellSheet.put( getId(i, j), new Cell());
             }
         }
     }
     
-    public Cell getCell(String ref){
+    /**
+     * Devuelve el Id correspondiente a la celda, (a1, c2 ...)
+     * @param i
+     * @param j
+     * @return
+     */
+    private String getId(int i, int j) {
+        return null;
+    }
+
+    /**
+     * Devuelve la celda correspondiente a ese identificador.
+     * @param ref
+     * @return
+     */
+    public Cell getCell(String ref) {
         if (dontHaveThisCell(ref)){
-            throw ThisCellNotExist;
+            throw new ThisCellNotExist("La celda referenciada no existe.")
         }
         return CellSheet.get(ref); // Buscamos la celda con esa referencia.
     }
 
+    /**
+     * Comprueba si esa referencia entra en el rango de posibles celdas.
+     * @param ref
+     * @return
+     */
     private boolean dontHaveThisCell(String ref) {
         return false;
     }

@@ -9,7 +9,6 @@ public class Cell {
     private Expression formula;
 
     public Cell(){
-
     }
 
     public MaybeValue evaluate(){
