@@ -1,6 +1,6 @@
 package java.value;
 
-public abstract class MaybeValue implements Expression {
+public abstract class MaybeValue {
 
     public abstract boolean hasValue();
     
