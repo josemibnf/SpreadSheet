@@ -11,7 +11,7 @@ public class Sheet {
 	public Sheet(int SIZE) {
         for (int i=1;i<=SIZE; i++){
             for (int j=1; j<=SIZE; j++){
-                CellSheet.put( getId(i, j), new Cell());
+                CellSheet.put( Sheet.getId(i, j), new Cell());
             }
         }
     }
@@ -20,7 +20,7 @@ public class Sheet {
      * Devuelve el Id correspondiente a la celda, (a1, c2 ...)
      * @param i
      * @param j
-     * @return
+     * @return id
      */
     private static String getId(int i, int j) {
         String[] alfabeto = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
