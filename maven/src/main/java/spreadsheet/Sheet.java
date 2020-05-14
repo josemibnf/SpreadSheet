@@ -9,7 +9,7 @@ public class Sheet {
     private final Map<String, Cell> CellSheet = new HashMap<String, Cell>();
 
 	public Sheet(int SIZE) {
-        for (int i=1;i<=SIZE; i++){
+        for (int i=0;i<SIZE; i++){
             for (int j=1; j<=SIZE; j++){
                 CellSheet.put( Sheet.getId(i, j), new Cell());
             }
@@ -34,7 +34,7 @@ public class Sheet {
      * @return
      * @throws ThisCellNotExist
      */
-    public Cell getCell(String ref) throws ThisCellNotExist {
+    public Cell getCell(String ref) throws ThisCellNotExist, NullPointerException {
         if (dontHaveThisCell(ref)){
             throw new ThisCellNotExist("La celda referenciada no existe.");
         }
