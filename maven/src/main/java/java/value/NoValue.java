@@ -9,5 +9,11 @@ public class NoValue extends MaybeValue { // Con esta clase seguimos el patron N
         // TODO Auto-generated method stub
         return false;
     }
+
+    @Override
+    public MaybeValue evaluate() {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
