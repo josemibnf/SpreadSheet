@@ -1,4 +1,6 @@
-public class NoValue extends MaybeValue{  // Con esta clase seguimos el patron NullObject.
+package java.value;
+
+public class NoValue extends MaybeValue { // Con esta clase seguimos el patron NullObject.
 
     // HAY QUE APLICARLE EL SINGLETON.
     

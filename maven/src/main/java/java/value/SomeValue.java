@@ -1,6 +1,8 @@
-public class SomeValue extends MaybeValue{
+package java.value;
 
-    private int value;
+public class SomeValue extends MaybeValue {
+
+    private final int value;
 
     public SomeValue(int i){
         this.value=i;
