@@ -19,12 +19,12 @@ public class ComplexSpreadSheetTest {
     }
 
     @Test
-    public void chained_expressions() {
+    public void chained_expressions() throws ThisCellNotExist {
         assertEquals( new SomeValue(1400), get("c3"));
     }
 
     @Test
-    public void chained_propagations() {
+    public void chained_propagations() throws ThisCellNotExist {
         put("a1", "b1");
         assertEquals(new SomeValue(1600), get("c3")); 
     }

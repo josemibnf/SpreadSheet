@@ -137,7 +137,7 @@ public class SpreadSheet {
     }
 
     public static void clear() {
-        // Esborra totes les cel·les del full de càlcul.
+        SHEET.clear();
     }
 
 }

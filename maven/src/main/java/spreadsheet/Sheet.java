@@ -49,4 +49,12 @@ public class Sheet {
     private boolean dontHaveThisCell(String ref) {
         return false;
     }
+
+    /**
+     * Borra todas las Celdas.
+     */
+    public void clear(){
+        CellSheet.clear();
+    }
+
 }
