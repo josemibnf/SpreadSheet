@@ -9,12 +9,11 @@ public class Cell {
     private Expression formula;
 
     public Cell(){
-        
+
     }
 
     public MaybeValue evaluate(){
         return null;
-        
     }
 
     public void set(Expression exp){
