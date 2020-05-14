@@ -1,0 +1,16 @@
+package spreadsheet.opt;
+
+import spreadsheet.Expression;
+
+public class Plus extends Operation {
+
+    public Plus(Expression exp1, Expression exp2) {
+        super(exp1, exp2);
+        // TODO Auto-generated constructor stub
+    }
+
+    public int operate(int i1, int i2) {
+        return i1 + i2;
+    }
+
+}
