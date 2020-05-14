@@ -18,12 +18,12 @@ public class SpreadSheetTest {
     }
 
     @Before
-    public void cell_has_no_value_if_depends_on_empty_cells() {
+    public void cell_has_no_value_if_depends_on_empty_cells() throws ThisCellNotExist {
         assertFalse(get("a3").hasValue());
     }
 
     @Test
-    public void recalculation_works() {
+    public void recalculation_works() throws ThisCellNotExist {
         put("a1", 42);
         put("a2", 20);
         assertEquals(new SomeValue(840), get("a3"));

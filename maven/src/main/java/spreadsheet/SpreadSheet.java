@@ -1,7 +1,9 @@
 package spreadsheet;
 
 import spreadsheet.Expression;
+import spreadsheet.opt.Mult;
 import spreadsheet.value.MaybeValue;
+import spreadsheet.value.SomeValue;
 
 public class SpreadSheet {
 
@@ -91,17 +93,20 @@ public class SpreadSheet {
 
     }
 
-    public static Expression mult(String ref1, String ref2) {
-        return null;
+    public static Expression mult(String ref1, String ref2) throws ThisCellNotExist {
+        return new Mult(
+             new Reference(SHEET.getCell(ref1)),
+             new Reference(SHEET.getCell(ref2))
+            );
     }
 
 
-    public static MaybeValue get(String name) {
-        return null;
+    public static MaybeValue get(String name) throws ThisCellNotExist {
         // Retorna el valor que potser hi ha a la cel·la
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
         // SomeValue; si no hi ha, NoValue.
+        return SHEET.getCell(name).evaluate();
     }
 
     public static void put(String name, Expression expr) throws ThisCellNotExist {
@@ -113,12 +118,13 @@ public class SpreadSheet {
         SHEET.getCell(name).set(expr);
     }
 
-    public static void put(String name, int value) {
+    public static void put(String name, int value) throws ThisCellNotExist {
         // Assigna a la cel·la amb nom name l’expressió
         // el valor value (Òbviament caldrà construir la
         // representació d’aquest int com Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+        SHEET.getCell(name).set(new SomeValue(value));
     }
 
     public static void put(String name, String refName) {

@@ -1,11 +1,9 @@
 package spreadsheet;
 
-import spreadsheet.Expression;
 import spreadsheet.value.MaybeValue;
 
 public class Cell {
 
-    private MaybeValue value;
     private Expression formula;
 
     public Cell() {
@@ -19,8 +17,8 @@ public class Cell {
      *
      * @return
      */
-    public void evaluate() {
-       this.value = formula.evaluate();
+    public MaybeValue evaluate() {
+       return formula.evaluate();
     }
 
     /**
