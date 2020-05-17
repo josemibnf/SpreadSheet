@@ -1,10 +1,12 @@
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
-
+import SpreadSheet.SpreadSheet;
+import SpreadSheet.ThisCellNotExist;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import val.SomeValue;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class SpreadSheetTest extends SpreadSheet {
 

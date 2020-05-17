@@ -1,3 +1,7 @@
+package exp;
+
+import SpreadSheet.Expression;
+
 public class Mult extends Operation {
 
     public Mult(Expression exp1, Expression exp2) {

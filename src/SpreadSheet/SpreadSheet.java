@@ -1,3 +1,9 @@
+package SpreadSheet;
+
+import exp.Mult;
+import val.MaybeValue;
+import val.SomeValue;
+
 public class SpreadSheet {
 
     // Con esta clase seguimos el patron Fachada.
@@ -88,9 +94,9 @@ public class SpreadSheet {
 
     public static Expression mult(String ref1, String ref2) throws ThisCellNotExist {
         return new Mult(
-             new Reference(SHEET.getCell(ref1)),
-             new Reference(SHEET.getCell(ref2))
-            );
+                new Reference(SHEET.getCell(ref1)),
+                new Reference(SHEET.getCell(ref2))
+        );
     }
 
 
@@ -98,7 +104,7 @@ public class SpreadSheet {
         // Retorna el valor que potser hi ha a la cel·la
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
-        // SomeValue; si no hi ha, NoValue.
+        // java.main.SomeValue; si no hi ha, java.main.NoValue.
         return SHEET.getCell(name).evaluate();
     }
 
@@ -114,7 +120,7 @@ public class SpreadSheet {
     public static void put(String name, int value) throws ThisCellNotExist {
         // Assigna a la cel·la amb nom name l’expressió
         // el valor value (Òbviament caldrà construir la
-        // representació d’aquest int com Expression).
+        // representació d’aquest int com java.main.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
         SHEET.getCell(name).set(new SomeValue(value));
@@ -124,9 +130,10 @@ public class SpreadSheet {
         // Assigna a la cel·la amb nom name la referència
         // a la cel·la amb nom refName (Òbviament caldrà
         // construir la representació d’aquesta
-        // referència com Expression).
+        // referència com java.main.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+        return;
     }
 
     public static void clear() {

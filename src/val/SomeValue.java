@@ -1,3 +1,5 @@
+package val;
+
 public class SomeValue extends MaybeValue {
 
     private final int value;
@@ -19,5 +21,5 @@ public class SomeValue extends MaybeValue {
     public MaybeValue evaluate() {
         return this;
     }
-    
+
 }

@@ -1,11 +1,13 @@
+package SpreadSheet;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Sheet {
-    // Esta es la clase Reference ¿??
+    // Esta es la clase java.main.Reference ¿??
 
-    private static int size;
     final static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    private static int size;
     private final Map<String, Cell> CellSheet = new HashMap<String, Cell>();
 
     public Sheet(int size) {

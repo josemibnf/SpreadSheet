@@ -1,16 +1,20 @@
+package val;
+
 public class NoValue extends MaybeValue {
 
     // Con esta clase seguimos el patron NullObject y Singleton.
-    
+
     private static NoValue instance = new NoValue();
-    private NoValue(){
+
+    private NoValue() {
     }
 
     /**
-     * Retorna la instancia de NoValue.
+     * Retorna la instancia de java.main.NoValue.
+     *
      * @return
      */
-    public static NoValue noValue(){
+    public static NoValue noValue() {
         return instance;
     }
 
@@ -23,5 +27,5 @@ public class NoValue extends MaybeValue {
     public MaybeValue evaluate() {
         return instance;
     }
-    
+
 }

@@ -1,4 +1,7 @@
+package SpreadSheet;
 
+import val.MaybeValue;
+import val.NoValue;
 
 public class Cell {
     private Expression formula;
@@ -9,8 +12,8 @@ public class Cell {
 
     /**
      * Asigna a value el valor que posee la formula, si no lo sabemos aun será
-     * NoValue.
-     *
+     * java.main.NoValue.
+     * <p>
      * En el PDF lo que hace es retornar el valor. ?¿?¿?
      *
      * @return
@@ -23,14 +26,16 @@ public class Cell {
      * Modifica la expresion de la celda,
      * por lo que ahora apuntaremos a otra
      * expresion distinta.
+     *
      * @param exp
      */
-    public void set(Expression exp){
-        this.formula=exp;
+    public void set(Expression exp) {
+        this.formula = exp;
     }
 
     /**
      * Devuelve la expresion actual de la celda.
+     *
      * @return
      */
     public Expression getFormula() {

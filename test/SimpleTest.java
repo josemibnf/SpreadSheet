@@ -1,10 +1,12 @@
-import static org.junit.Assert.assertTrue;
-
+import SpreadSheet.SpreadSheet;
+import SpreadSheet.ThisCellNotExist;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SimpleTest extends SpreadSheet{
+import static org.junit.Assert.assertTrue;
+
+public class SimpleTest extends SpreadSheet {
 
     @Before
     public void setUpSheet() throws ThisCellNotExist {

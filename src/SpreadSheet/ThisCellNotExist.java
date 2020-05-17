@@ -1,4 +1,6 @@
-public class ThisCellNotExist extends Exception{
+package SpreadSheet;
+
+public class ThisCellNotExist extends Exception {
 
     /**
      *
@@ -6,14 +8,12 @@ public class ThisCellNotExist extends Exception{
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
      * Se lanza si la celda no existe.
-     * 
-     * @return
      *
+     * @return
      */
     public ThisCellNotExist(String msg) {
         super(msg);
     }
-    
+
 }
