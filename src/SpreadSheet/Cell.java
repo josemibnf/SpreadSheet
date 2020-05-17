@@ -1,7 +1,8 @@
 package SpreadSheet;
 
-import val.MaybeValue;
-import val.NoValue;
+import Expression.Expression;
+import Value.MaybeValue;
+import Value.NoValue;
 
 public class Cell {
     private Expression formula;

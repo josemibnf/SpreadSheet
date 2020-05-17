@@ -1,6 +1,4 @@
-package exp;
-
-import SpreadSheet.Expression;
+package Expression;
 
 public class Mult extends Operation {
 

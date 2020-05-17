@@ -1,8 +1,11 @@
 package SpreadSheet;
 
-import exp.Mult;
-import val.MaybeValue;
-import val.SomeValue;
+import Exceptions.InvalidCell;
+import Expression.Expression;
+import Expression.Mult;
+import Expression.Plus;
+import Value.MaybeValue;
+import Value.SomeValue;
 
 public class SpreadSheet {
 
@@ -10,6 +13,20 @@ public class SpreadSheet {
 
     private static int SIZE = 5;
     private static final Sheet SHEET = new Sheet(SIZE);
+
+    public static void main(String[] args) throws InvalidCell {
+        put("a1", 2);
+        put("a2", 3);
+
+        put("b1", plus(2, 3));
+        SomeValue plus_int_int = (SomeValue) get("b1");
+        System.out.println("plus_int_int: "+plus_int_int.getValue());
+
+        put("b2", mult(2, 3));
+        SomeValue mult_int_int = (SomeValue) get("b2");
+        System.out.println("mult_int_int: "+mult_int_int.getValue());
+
+    }
 
     public static Expression plus(Expression expr1, Expression expr2) {
         return expr2;
@@ -30,11 +47,11 @@ public class SpreadSheet {
     }
 
     public static Expression plus(int value1, int value2) {
-        return null;
+        return new Plus(new SomeValue(value1), new SomeValue(value2));
 
     }
 
-    public static Expression plus(int value1, String ref2) {
+    public static Expression plus(int value1, String ref2) throws InvalidCell {
         return null;
 
     }
@@ -73,7 +90,7 @@ public class SpreadSheet {
     }
 
     public static Expression mult(int value1, int value2) {
-        return null;
+        return new Mult(new SomeValue(value1), new SomeValue(value2));
 
     }
 
@@ -92,7 +109,7 @@ public class SpreadSheet {
 
     }
 
-    public static Expression mult(String ref1, String ref2) throws ThisCellNotExist {
+    public static Expression mult(String ref1, String ref2) throws InvalidCell {
         return new Mult(
                 new Reference(SHEET.getCell(ref1)),
                 new Reference(SHEET.getCell(ref2))
@@ -100,7 +117,7 @@ public class SpreadSheet {
     }
 
 
-    public static MaybeValue get(String name) throws ThisCellNotExist {
+    public static MaybeValue get(String name) throws InvalidCell {
         // Retorna el valor que potser hi ha a la cel·la
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
@@ -108,7 +125,7 @@ public class SpreadSheet {
         return SHEET.getCell(name).evaluate();
     }
 
-    public static void put(String name, Expression expr) throws ThisCellNotExist {
+    public static void put(String name, Expression expr) throws InvalidCell {
         // Assigna a la cel·la amb nom name l’expressió
         // expr.
         // Això provocarà l’avaluació de la cel·la (la
@@ -117,7 +134,7 @@ public class SpreadSheet {
         SHEET.getCell(name).set(expr);
     }
 
-    public static void put(String name, int value) throws ThisCellNotExist {
+    public static void put(String name, int value) throws InvalidCell {
         // Assigna a la cel·la amb nom name l’expressió
         // el valor value (Òbviament caldrà construir la
         // representació d’aquest int com java.main.Expression).

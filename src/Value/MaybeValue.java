@@ -1,7 +1,7 @@
-package val;
+package Value;
 
 import SpreadSheet.Cell;
-import SpreadSheet.Expression;
+import Expression.Expression;
 
 import java.util.HashSet;
 import java.util.Set;

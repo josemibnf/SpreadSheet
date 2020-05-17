@@ -1,4 +1,4 @@
-package val;
+package Value;
 
 public class NoValue extends MaybeValue {
 

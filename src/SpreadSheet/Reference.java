@@ -1,6 +1,7 @@
 package SpreadSheet;
 
-import val.MaybeValue;
+import Expression.Expression;
+import Value.MaybeValue;
 
 import java.util.HashSet;
 import java.util.Set;

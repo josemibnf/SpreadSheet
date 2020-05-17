@@ -1,10 +1,9 @@
-package exp;
+package Expression;
 
 import SpreadSheet.Cell;
-import SpreadSheet.Expression;
-import val.MaybeValue;
-import val.NoValue;
-import val.SomeValue;
+import Value.MaybeValue;
+import Value.NoValue;
+import Value.SomeValue;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,5 +1,7 @@
 package SpreadSheet;
 
+import Exceptions.InvalidCell;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,11 +37,11 @@ public class Sheet {
      *
      * @param reference
      * @return
-     * @throws ThisCellNotExist
+     * @throws InvalidCell
      */
-    public Cell getCell(String reference) throws ThisCellNotExist, NullPointerException {
+    public Cell getCell(String reference) throws InvalidCell, NullPointerException {
         if (!isValidCell(reference)) {
-            throw new ThisCellNotExist("La celda referenciada no existe.");
+            throw new InvalidCell();
         }
         return CellSheet.get(reference); // Buscamos la celda con esa referencia.
     }
