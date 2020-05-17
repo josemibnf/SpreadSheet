@@ -1,24 +1,23 @@
 import SpreadSheet.SpreadSheet;
 import Exceptions.InvalidCell;
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
 import Value.SomeValue;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 
 public class ComplexSpreadSheetTest extends SpreadSheet {
 
-    @Before
+    @BeforeEach
     public void setUp() throws InvalidCell {
         put("c1", mult("a1", "b1"));
         put("c2", mult("a2", "b2"));
         put("c3", plus("c1", "c2"));
 
-        put("a1", 10);
-        put("b1", 20);
-        put("a2", 30);
-        put("b2", 40);
+        put("a1", 10);put("b1", 20);
+        put("a2", 30);put("b2", 40);
     }
 
     @Test
@@ -32,7 +31,7 @@ public class ComplexSpreadSheetTest extends SpreadSheet {
         assertEquals(new SomeValue(1600), get("c3"));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         clear();
     }

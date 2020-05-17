@@ -4,12 +4,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import Value.SomeValue;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertTrue;
 
 public class CellHasValueTest extends SpreadSheet {
 
-    @Before
+    @BeforeEach
     public void setUpSheet() throws InvalidCell {
         put("a1", 42);
         put("a2", 20);
@@ -27,7 +29,7 @@ public class CellHasValueTest extends SpreadSheet {
         assertTrue(get("a3").hasValue());
     }
 
-    @After
+    @AfterEach
     public void clearSheet() {
         clear();
     }

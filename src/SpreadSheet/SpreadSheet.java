@@ -14,6 +14,7 @@ public class SpreadSheet {
     private static int SIZE = 5;
     private static final Sheet SHEET = new Sheet(SIZE);
 
+    /**
     public static void main(String[] args) throws InvalidCell {
         put("a1", 2);
         put("a2", 3);
@@ -27,6 +28,7 @@ public class SpreadSheet {
         System.out.println("mult_int_int: "+mult_int_int.getValue());
 
     }
+    **/
 
     public static Expression plus(Expression expr1, Expression expr2) {
         return expr2;
@@ -132,6 +134,7 @@ public class SpreadSheet {
         // qual cosa pot propagar la avaluació a d’altres
         // cel·les)
         SHEET.getCell(name).set(expr);
+        SHEET.getCell(name).evaluate();
     }
 
     public static void put(String name, int value) throws InvalidCell {
@@ -140,17 +143,21 @@ public class SpreadSheet {
         // representació d’aquest int com java.main.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+
         SHEET.getCell(name).set(new SomeValue(value));
+        SHEET.getCell(name).evaluate();
     }
 
-    public static void put(String name, String refName) {
+    public static void put(String name, String refName) throws InvalidCell {
         // Assigna a la cel·la amb nom name la referència
         // a la cel·la amb nom refName (Òbviament caldrà
         // construir la representació d’aquesta
         // referència com java.main.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
-        return;
+        Cell cell = SHEET.getCell(refName);
+        Reference reference = new Reference(cell);
+        SHEET.getCell(name).set(reference);
     }
 
     public static void clear() {
