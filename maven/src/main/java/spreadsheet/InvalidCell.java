@@ -1,6 +1,6 @@
 package spreadsheet;
 
-public class ThisCellNotExist extends Exception{
+public class InvalidCell extends Exception{
 
     /**
      *
@@ -14,8 +14,8 @@ public class ThisCellNotExist extends Exception{
      * @return
      *
      */
-    public ThisCellNotExist(String msg) {
-        super(msg);
+    public InvalidCell() {
+        super("La celda no se encuentra en el tablero.");
     }
     
 }

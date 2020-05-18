@@ -1,6 +1,5 @@
 package spreadsheet;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static spreadsheet.SpreadSheet.*;
 
