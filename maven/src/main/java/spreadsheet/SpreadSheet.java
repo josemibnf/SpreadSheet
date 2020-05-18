@@ -13,41 +13,40 @@ public class SpreadSheet {
     private static final Sheet SHEET = new Sheet(SIZE);
 
     public static Expression plus(Expression expr1, Expression expr2) {
-        return expr2;
         // Crea i retorna una expressió corresponent a la
         // suma de les dues subexpressions
+        return new Plus(expr1, expr2);
+
     }
 
-    public static Expression plus(Expression expr1, String ref2) {
-        return expr1;
+    public static Expression plus(Expression expr1, String ref2) throws NullPointerException, InvalidCell {
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
+        return new Plus(expr1, new Reference(SHEET.getCell("ref2")));
     }
 
     public static Expression plus(int value1, Expression expr2) {
-        return expr2;
+        return new Plus(new SomeValue(value1), expr2);
 
     }
 
     public static Expression plus(int value1, int value2) {
-        return null;
+        return new Plus(new SomeValue(value1), new SomeValue(value2));
+    }
+
+    public static Expression plus(int value1, String ref2) throws NullPointerException, InvalidCell {
+        return new Plus(new SomeValue(value1), new Reference(SHEET.getCell(ref2)));
 
     }
 
-    public static Expression plus(int value1, String ref2) {
-        return null;
+    public static Expression plus(String ref1, Expression expr2) throws NullPointerException, InvalidCell {
+        return new Plus(new Reference(SHEET.getCell(ref1)), expr2);
 
     }
 
-    public static Expression plus(String ref1, Expression expr2) {
-        return expr2;
-
-    }
-
-    public static Expression plus(String ref1, int value2) {
-        return null;
-
+    public static Expression plus(String ref1, int value2) throws NullPointerException, InvalidCell {
+        return new Plus(new Reference(SHEET.getCell(ref1)), new SomeValue(value2));
     }
 
     public static Expression plus(String ref1, String ref2) throws NullPointerException, InvalidCell {
@@ -59,41 +58,40 @@ public class SpreadSheet {
     }
 
     public static Expression mult(Expression expr1, Expression expr2) {
-        return expr2;
         // Crea i retorna una expressió corresponent a la
-        // suma de les dues subexpressions
+        // multiplicacion de les dues subexpressions
+        return new Mult(expr1, expr2);
+
     }
 
-    public static Expression mult(Expression expr1, String ref2) {
-        return expr1;
+    public static Expression mult(Expression expr1, String ref2) throws NullPointerException, InvalidCell {
         // Crea i retorna una expressió corresponent a la
-        // suma de expr1 i de l’expressió que representa
+        // multiplicacion de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
+        return new Mult(expr1, new Reference(SHEET.getCell("ref2")));
     }
 
     public static Expression mult(int value1, Expression expr2) {
-        return expr2;
+        return new Mult(new SomeValue(value1), expr2);
 
     }
 
     public static Expression mult(int value1, int value2) {
-        return null;
+        return new Mult(new SomeValue(value1), new SomeValue(value2));
+    }
+
+    public static Expression mult(int value1, String ref2) throws NullPointerException, InvalidCell {
+        return new Mult(new SomeValue(value1), new Reference(SHEET.getCell(ref2)));
 
     }
 
-    public static Expression mult(int value1, String ref2) {
-        return null;
+    public static Expression mult(String ref1, Expression expr2) throws NullPointerException, InvalidCell {
+        return new Mult(new Reference(SHEET.getCell(ref1)), expr2);
 
     }
 
-    public static Expression mult(String ref1, Expression expr2) {
-        return expr2;
-
-    }
-
-    public static Expression mult(String ref1, int value2) {
-        return null;
-
+    public static Expression mult(String ref1, int value2) throws NullPointerException, InvalidCell {
+        return new Mult(new Reference(SHEET.getCell(ref1)), new SomeValue(value2));
     }
 
     public static Expression mult(String ref1, String ref2) throws InvalidCell {
