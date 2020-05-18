@@ -3,6 +3,7 @@ package spreadsheet;
 import static org.junit.Assert.assertTrue;
 import static spreadsheet.SpreadSheet.*;
 
+import spreadsheet.value.MaybeValue;
 import spreadsheet.value.SomeValue;
 
 import org.junit.After;
@@ -25,12 +26,13 @@ public class SimpleOperationTest {
 
     @Test
     public void cell_evaluate_works_if_depends_on_value_cells() throws InvalidCell {
-        assertTrue(get("a3").hasValue());
+        SomeValue val = (SomeValue) get("a3");
+        assertTrue(val.getValue()==840);
     }
 
     @Test
     public void cell_references_works_if_depends_on_value_cells() throws InvalidCell {
-        assertTrue(get("a3").hasValue());
+        
     }
 
     @After

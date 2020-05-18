@@ -24,7 +24,7 @@ public class SimpleTest {
 
     @Test
     public void cell_has_value_if_evaluate_work_c2() throws InvalidCell {
-        SomeValue val = (SomeValue) get("c2").evaluate();
+        SomeValue val = (SomeValue) get("c2");
         System.out.println(val);
         assertTrue(val.getValue()==42);
     }
@@ -37,7 +37,7 @@ public class SimpleTest {
 
     @Test
     public void cell_has_value_if_evaluate_work_a1() throws InvalidCell {
-        SomeValue val = (SomeValue) get("a1").evaluate();
+        SomeValue val = (SomeValue) get("a1");
         System.out.println(val);
         assertTrue(val.getValue()==42);
     }
