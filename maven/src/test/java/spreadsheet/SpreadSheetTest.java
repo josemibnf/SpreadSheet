@@ -15,13 +15,13 @@ public class SpreadSheetTest {
     @Before
     public void setUpSheet() throws InvalidCell {
         put("a3", mult("a1", "a2"));
+        assertFalse(get("a3").hasValue());
     }
 
     @Before
     public void cell_has_no_value_if_depends_on_empty_cells() throws InvalidCell {
         put("a1", 42);
         put("a2", 20);
-        assertFalse(get("a3").hasValue());
     }
 
     @Test
