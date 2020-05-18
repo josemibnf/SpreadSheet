@@ -18,12 +18,12 @@ public class SimpleTest {
     }
 
     @Test
-    public void cell_has_value_if_it_has_value_c2__before() throws InvalidCell {
+    public void cell_has_value_if_it_has_value_c2() throws InvalidCell {
         assertTrue(get("c2").hasValue());
     }
 
     @Test
-    public void cell_has_value_if_evaluate_work_c2__before() throws InvalidCell {
+    public void cell_has_value_if_evaluate_work_c2() throws InvalidCell {
         SomeValue val = (SomeValue) get("c2").evaluate();
         System.out.println(val);
         assertTrue(val.getValue()==42);
@@ -36,8 +36,10 @@ public class SimpleTest {
     }
 
     @Test
-    public void cell_has_value_if_it_has_value_c2() throws InvalidCell {
-        assertTrue(get("c2").hasValue());
+    public void cell_has_value_if_evaluate_work_a1() throws InvalidCell {
+        SomeValue val = (SomeValue) get("a1").evaluate();
+        System.out.println(val);
+        assertTrue(val.getValue()==42);
     }
 
     @After
