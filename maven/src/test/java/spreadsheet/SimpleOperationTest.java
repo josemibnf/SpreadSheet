@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CellHasValueTest {
+public class SimpleOperationTest {
 
     @Before
     public void setUpSheet() throws InvalidCell {
@@ -20,12 +20,16 @@ public class CellHasValueTest {
 
     @Test
     public void cell_has_value_if_depends_on_value_cells() throws InvalidCell {
-        if (get("a3").hasValue() ){
-            SomeValue val = (SomeValue) get("a3");
-            System.out.println(val.getValue());
-        }else{
-            System.out.println("Is NoValue");
-        }
+        assertTrue(get("a3").hasValue());
+    }
+
+    @Test
+    public void cell_evaluate_works_if_depends_on_value_cells() throws InvalidCell {
+        assertTrue(get("a3").hasValue());
+    }
+
+    @Test
+    public void cell_references_works_if_depends_on_value_cells() throws InvalidCell {
         assertTrue(get("a3").hasValue());
     }
 
