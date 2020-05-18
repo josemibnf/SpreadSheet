@@ -3,6 +3,7 @@ package spreadsheet;
 import spreadsheet.value.SomeValue;
 import static spreadsheet.SpreadSheet.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.*;
 
@@ -19,8 +20,21 @@ public class ComplexSpreadSheetTest {
     }
 
     @Test
+    public void value_of_a1() throws InvalidCell {
+        SomeValue val = (SomeValue) get("a1");
+        assertTrue(val.getValue()==10);
+    }
+
+    @Test
+    public void value_of_c1() throws InvalidCell {
+        SomeValue val = (SomeValue) get("c1");
+        assertTrue(val.getValue()==200);
+    }
+
+    @Test
     public void chained_expressions() throws InvalidCell {
-        assertEquals( new SomeValue(1400), get("c3"));
+        SomeValue val = (SomeValue) get("c3");
+        assertTrue(val.getValue()==1400);
     }
 
     @Test
