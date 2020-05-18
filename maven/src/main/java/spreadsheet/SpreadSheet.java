@@ -1,6 +1,7 @@
 package spreadsheet;
 
 import spreadsheet.opt.Mult;
+import spreadsheet.opt.Plus;
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.SomeValue;
 
@@ -49,8 +50,11 @@ public class SpreadSheet {
 
     }
 
-    public static Expression plus(String ref1, String ref2) {
-        return null;
+    public static Expression plus(String ref1, String ref2) throws NullPointerException, InvalidCell {
+        return new Plus(
+            new Reference(SHEET.getCell(ref1)),
+            new Reference(SHEET.getCell(ref2))
+           );
 
     }
 
@@ -126,13 +130,14 @@ public class SpreadSheet {
         SHEET.getCell(name).set(new SomeValue(value));
     }
 
-    public static void put(String name, String refName) {
+    public static void put(String name, String refName) throws NullPointerException, InvalidCell {
         // Assigna a la cel·la amb nom name la referència
         // a la cel·la amb nom refName (Òbviament caldrà
         // construir la representació d’aquesta
         // referència com Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+        SHEET.getCell(name).set(new Reference(SHEET.getCell(refName)));
     }
 
     public static void clear() {
