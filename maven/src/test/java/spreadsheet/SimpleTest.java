@@ -31,6 +31,10 @@ public class SimpleTest {
 
     @Test
     public void cell_has_value_if_it_has_value_a1() throws InvalidCell {
+        SomeValue val = (SomeValue) get("a1");
+        if(val.getValue()==42){
+            System.out.println("x");
+        }
         assertTrue(get("a1").hasValue());
     }
 
