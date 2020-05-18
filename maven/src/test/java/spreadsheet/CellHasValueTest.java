@@ -12,14 +12,14 @@ import org.junit.Test;
 public class CellHasValueTest {
 
     @Before
-    public void setUpSheet() throws ThisCellNotExist {
+    public void setUpSheet() throws InvalidCell {
         put("a1", 42);
         put("a2", 20);
         put("a3", mult("a1", "a2"));
     }
 
     @Test
-    public void cell_has_value_if_depends_on_value_cells() throws ThisCellNotExist {
+    public void cell_has_value_if_depends_on_value_cells() throws InvalidCell {
         if (get("a3").hasValue() ){
             SomeValue val = (SomeValue) get("a3");
             System.out.println(val.getValue());
