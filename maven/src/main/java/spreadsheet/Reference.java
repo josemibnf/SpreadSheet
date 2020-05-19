@@ -19,6 +19,7 @@ public class Reference implements Expression {
     @Override
     public void set_references(Set<Cell> refs) {
         this.refs = refs;
+        this.push_references();
     }
 
     @Override

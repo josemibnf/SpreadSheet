@@ -6,8 +6,11 @@ import spreadsheet.value.MaybeValue;
 public interface Expression {
 
 	/**
-     * Posee el conjunto de celdas que poseen la expresion,
+     * Añade el conjunto de celdas que poseen la expresion,
      * directa o indirectamente. Puede ser null.
+     * Al ejecutarse, primero añade a su propio set, y
+     * despues ejecuta push_references(), con el fin de 
+     * seguir actualizando la cadena.
      */
     public void set_references(Set<Cell> refs);
 

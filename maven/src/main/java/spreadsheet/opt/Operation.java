@@ -40,6 +40,7 @@ public abstract class Operation implements Expression {
     @Override
     public void set_references(Set<Cell> refs) {
         this.refs.addAll(refs);
+        this.push_references();
     }
 
     @Override

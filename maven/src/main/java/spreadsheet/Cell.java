@@ -41,6 +41,7 @@ public class Cell {
         Set<Cell> set = this.formula.get_references();
         this.formula=exp;
         this.formula.set_references(set);
+        this.formula.push_references();
     }
 
     /**
