@@ -16,6 +16,7 @@ public class Cell {
 
     public Cell() {
         this.formula = NoValue.noValue();
+        this.value = NoValue.noValue();
         this.references = new HashSet<>();
     }
 
