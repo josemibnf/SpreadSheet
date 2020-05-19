@@ -7,6 +7,8 @@ public class Cell {
 
     private Expression formula;
 
+    private MaybeValue value;
+
     public Cell() {
         this.formula = NoValue.noValue();
     }
@@ -19,8 +21,12 @@ public class Cell {
      *
      * @return
      */
-    public MaybeValue evaluate() {
+    public MaybeValue revaluate() {
        return formula.evaluate();
+    }
+
+    public MaybeValue evaluate() {
+        return this.value;
     }
 
     /**
