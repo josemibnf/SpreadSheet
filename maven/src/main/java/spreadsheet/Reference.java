@@ -20,7 +20,11 @@ public class Reference implements Expression {
     @Override
     public void set_references(Set<Cell> refs) {
         this.refs = refs;
-        this.push_references();
+        if (this.ref_cell.getFormula()==NoValue.noValue()){
+            this.ref_cell.add_reference(this);
+        }else{
+            this.push_references();
+        }
     }
 
     @Override
@@ -32,12 +36,11 @@ public class Reference implements Expression {
      * Si la formula de la celda es NoValue,
      * no podemos añadirle las referencias.
      * 
+     * Si se ejecuta con NoValue como formula de
+     * la celda, no tendrá efecto.
      */
     @Override
     public void push_references() {
-        Expression formula = this.ref_cell.getFormula();
-        if (formula != NoValue.noValue()){
-            formula.set_references(this.refs);
-        }
+        this.ref_cell.getFormula().set_references(this.refs);
     }
 }

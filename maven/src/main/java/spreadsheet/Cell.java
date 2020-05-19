@@ -12,8 +12,11 @@ public class Cell {
 
     private MaybeValue value;
 
+    private Set<Reference> references;
+
     public Cell() {
         this.formula = NoValue.noValue();
+        this.references = new HashSet<>();
     }
 
     /**
@@ -43,6 +46,7 @@ public class Cell {
         if (this.formula == NoValue.noValue()){
             previus_set = new HashSet<>();
             previus_set.add(this);
+            this.notify_references();
         }else{
             previus_set = this.formula.get_references();
         }
@@ -57,5 +61,31 @@ public class Cell {
      */
     public Expression getFormula() {
         return this.formula;
+    }
+
+    /**
+     * Añade una referencia para el momento en el
+     * que formula posea una formula !NoValue.
+     * 
+     * Debe ser llamado solo por una referencia que apunte
+     * a la celda cuando esta tenga formula NoValue.
+     * @param reference
+     */
+	public void add_reference(Reference reference) {
+        this.references.add(reference);
+    }
+    
+    /**
+     * Ejecutado en el momento en que añadimos una formula
+     * distinta a NoValue,
+     * notifica a todas las referencias de que ya pueden añadir
+     * sus propias referencias.
+     * Ademas resetea el Set.
+     */
+    private void notify_references(){
+        for (Reference r : this.references){
+            r.push_references();
+        }
+        this.references.clear();
     }
 }
