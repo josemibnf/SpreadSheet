@@ -50,6 +50,8 @@ public class SomeValue extends MaybeValue {
      * hacemos que todas las celdas de la cadena revaluen 
      * sus valores.
      * 
+     * La primera celda deberia ser la mas cercana en referencia.
+     * 
      */
     private void notify_references(){
         for (Cell c : this.refs){

@@ -45,14 +45,21 @@ public class Cell {
         Set<Cell> previus_set;
         if (this.formula == NoValue.noValue()){
             previus_set = new HashSet<>();
-            previus_set.add(this);
-            this.notify_references();
+            previus_set.add(this); // Primero se añade la propia celda, ya que es la primera
+                                   // que debera de ejecutarse.
+            this.formula=exp;
+            this.formula.set_references(previus_set);
+            this.notify_references(); // Todas las referencias que apuntan a la celda
+                                      // cargan sus referencias en la nueva formula.
+            this.formula.push_references(); // Se gargan las referencias añadidas a las
+                                            // dependencias de la formula, si las tiene.
         }else{
             previus_set = this.formula.get_references();
+            this.formula=exp;
+            this.formula.set_references(previus_set);
+            this.formula.push_references();
         }
-        this.formula=exp;
-        this.formula.set_references(previus_set);
-        this.formula.push_references();
+
     }
 
     /**
