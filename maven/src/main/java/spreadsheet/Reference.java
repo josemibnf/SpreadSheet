@@ -1,11 +1,11 @@
 package spreadsheet;
 
-import java.util.HashSet;
 import java.util.Set;
 import spreadsheet.value.MaybeValue;
 
 public class Reference implements Expression {
     private final Cell ref;
+    public Set<Cell> refs;
 
     public Reference(Cell ref) {
         this.ref = ref;
@@ -17,10 +17,7 @@ public class Reference implements Expression {
     }
 
     @Override
-    public Set<Cell> references() {
-        Set<Cell> set = new HashSet<Cell>();
-        set.add(ref);
-        set.addAll(ref.getFormula().references());
-        return set;
+    public void references(Set<Cell> refs) {
+        this.refs = refs;
     }
 }
