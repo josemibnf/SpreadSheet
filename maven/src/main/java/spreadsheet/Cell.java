@@ -40,6 +40,7 @@ public class Cell {
     public void set(Expression exp){
         Set<Cell> set = this.formula.get_references();
         this.formula=exp;
+        this.formula.set_references(set);
     }
 
     /**
