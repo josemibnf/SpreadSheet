@@ -1,5 +1,6 @@
 package spreadsheet;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import spreadsheet.value.MaybeValue;
@@ -38,9 +39,15 @@ public class Cell {
      * @param exp
      */
     public void set(Expression exp){
-        Set<Cell> set = this.formula.get_references();
+        Set<Cell> previus_set;
+        if (this.formula == NoValue.noValue()){
+            previus_set = new HashSet<>();
+            previus_set.add(this);
+        }else{
+            previus_set = this.formula.get_references();
+        }
         this.formula=exp;
-        this.formula.set_references(set);
+        this.formula.set_references(previus_set);
         this.formula.push_references();
     }
 
