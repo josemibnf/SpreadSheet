@@ -1,5 +1,6 @@
 package spreadsheet.value;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import spreadsheet.Cell;
@@ -11,6 +12,7 @@ public class SomeValue extends MaybeValue {
 
     public SomeValue(int i) {
         this.value = i;
+        this.refs = new HashSet<>();
     }
 
     public int getValue() {
@@ -39,7 +41,7 @@ public class SomeValue extends MaybeValue {
 
     @Override
     public void set_references(Set<Cell> refs) {
-        this.refs = refs;
+        this.refs.addAll(refs);
         this.notify_references();
     }
 

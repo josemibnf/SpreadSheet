@@ -1,5 +1,6 @@
 package spreadsheet;
 
+import java.util.HashSet;
 import java.util.Set;
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.NoValue;
@@ -10,6 +11,7 @@ public class Reference implements Expression {
 
     public Reference(Cell ref) {
         this.ref_cell = ref;
+        this.refs = new HashSet<>();
     }
 
     @Override
@@ -19,7 +21,7 @@ public class Reference implements Expression {
 
     @Override
     public void set_references(Set<Cell> refs) {
-        this.refs = refs;
+        this.refs.addAll(refs);
         if (this.ref_cell.getFormula()==NoValue.noValue()){
             this.ref_cell.add_reference(this);
         }else{

@@ -2,6 +2,8 @@ package spreadsheet.opt;
 
 import spreadsheet.Cell;
 import spreadsheet.Expression;
+
+import java.util.HashSet;
 import java.util.Set;
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.NoValue;
@@ -16,6 +18,7 @@ public abstract class Operation implements Expression {
     public Operation(Expression exp1, Expression exp2){
         this.exp1 = exp1;
         this.exp2 = exp2;
+        this.refs = new HashSet<>();
     }
 
     public abstract int operate(int i1, int i2);
