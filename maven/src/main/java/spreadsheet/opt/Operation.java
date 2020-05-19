@@ -2,7 +2,6 @@ package spreadsheet.opt;
 
 import spreadsheet.Cell;
 import spreadsheet.Expression;
-import java.util.HashSet;
 import java.util.Set;
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.NoValue;
@@ -12,11 +11,13 @@ public abstract class Operation implements Expression {
 
     public final Expression exp1;
     public final Expression exp2;
+    public Set<Cell> refs;
     
     public Operation(Expression exp1, Expression exp2){
-        // Constructor ¿? No se en el pdf lo pone.
         this.exp1 = exp1;
         this.exp2 = exp2;
+        this.exp1.references(this.refs);
+        this.exp2.references(this.refs);
     }
 
     public abstract int operate(int i1, int i2);
@@ -39,11 +40,8 @@ public abstract class Operation implements Expression {
     }
 
     @Override
-    public Set<Cell> references() {
-        Set<Cell> set = new HashSet<Cell>();
-        set.addAll(exp1.references());
-        set.addAll(exp2.references());
-        return set;
+    public void references(Set<Cell> refs) {
+        this.refs.addAll(refs);
     }
 
 }

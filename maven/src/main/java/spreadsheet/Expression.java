@@ -6,11 +6,10 @@ import spreadsheet.value.MaybeValue;
 public interface Expression {
     
     /**
-     * Posee el conjunto de celdas que posee la expresion,
+     * Posee el conjunto de celdas que poseen la expresion,
      * directa o indirectamente. Puede ser null.
-     * @return
      */
-    public Set<Cell> references(); 
+    public void references(Set<Cell> refs);
     
     /**
      * Retorna el valor de la formula.
