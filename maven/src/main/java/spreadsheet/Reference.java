@@ -2,18 +2,19 @@ package spreadsheet;
 
 import java.util.Set;
 import spreadsheet.value.MaybeValue;
+import spreadsheet.value.NoValue;
 
 public class Reference implements Expression {
-    private final Cell ref;
+    private final Cell ref_cell;
     public Set<Cell> refs;
 
     public Reference(Cell ref) {
-        this.ref = ref;
+        this.ref_cell = ref;
     }
 
     @Override
     public MaybeValue evaluate() {
-        return ref.evaluate();
+        return ref_cell.evaluate();
     }
 
     @Override
@@ -27,8 +28,16 @@ public class Reference implements Expression {
         return this.refs;
     }
 
+    /**
+     * Si la formula de la celda es NoValue,
+     * no podemos añadirle las referencias.
+     * 
+     */
     @Override
     public void push_references() {
-        this.ref.getFormula().set_references(refs);
+        Expression formula = this.ref_cell.getFormula();
+        if (formula != NoValue.noValue()){
+            formula.set_references(this.refs);
+        }
     }
 }
