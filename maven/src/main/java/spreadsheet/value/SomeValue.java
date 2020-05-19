@@ -7,6 +7,7 @@ import spreadsheet.Cell;
 public class SomeValue extends MaybeValue {
 
     private final int value;
+    private Set<Cell> refs;
 
     public SomeValue(int i) {
         this.value = i;
@@ -24,6 +25,16 @@ public class SomeValue extends MaybeValue {
     @Override
     public MaybeValue evaluate() {
         return this;
+    }
+
+    @Override
+    public Set<Cell> get_references() {
+        return this.refs;
+    }    
+    
+    @Override
+    public void push_references() {
+        // No tiene a quien comunicar su existencia.
     }
 
     @Override
