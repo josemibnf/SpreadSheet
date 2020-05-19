@@ -9,7 +9,7 @@ public class Reference implements Expression {
 
     public Reference(Cell ref) {
         this.ref = ref;
-        this.ref.getFormula().references(refs);
+        this.ref.getFormula().set_references(refs);
 
     }
 
@@ -19,7 +19,12 @@ public class Reference implements Expression {
     }
 
     @Override
-    public void references(Set<Cell> refs) {
+    public void set_references(Set<Cell> refs) {
         this.refs = refs;
     }
+
+    @Override
+    public Set<Cell> get_references() {
+        return this.refs;
+    } 
 }

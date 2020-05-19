@@ -16,8 +16,8 @@ public abstract class Operation implements Expression {
     public Operation(Expression exp1, Expression exp2){
         this.exp1 = exp1;
         this.exp2 = exp2;
-        this.exp1.references(this.refs);
-        this.exp2.references(this.refs);
+        this.exp1.set_references(this.refs);
+        this.exp2.set_references(this.refs);
     }
 
     public abstract int operate(int i1, int i2);
@@ -40,8 +40,13 @@ public abstract class Operation implements Expression {
     }
 
     @Override
-    public void references(Set<Cell> refs) {
+    public void set_references(Set<Cell> refs) {
         this.refs.addAll(refs);
     }
+
+    @Override
+    public Set<Cell> get_references() {
+        return this.refs;
+    } 
 
 }

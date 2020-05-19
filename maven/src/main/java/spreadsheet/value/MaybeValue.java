@@ -10,8 +10,13 @@ public abstract class MaybeValue implements Expression{
     public Set<Cell> refs;
 
     @Override
-    public void references(Set<Cell> refs) {
+    public void set_references(Set<Cell> refs) {
         this.refs = refs;
     }
+
+    @Override
+    public Set<Cell> get_references() {
+        return this.refs;
+    }    
     
 }

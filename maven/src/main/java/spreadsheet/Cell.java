@@ -1,5 +1,7 @@
 package spreadsheet;
 
+import java.util.Set;
+
 import spreadsheet.value.MaybeValue;
 import spreadsheet.value.NoValue;
 
@@ -21,8 +23,8 @@ public class Cell {
      *
      * @return
      */
-    public MaybeValue revaluate() {
-       return formula.evaluate();
+    public void revaluate() {
+       this.value = formula.evaluate();
     }
 
     public MaybeValue evaluate() {
@@ -36,6 +38,7 @@ public class Cell {
      * @param exp
      */
     public void set(Expression exp){
+        Set<Cell> set = this.formula.get_references();
         this.formula=exp;
     }
 
