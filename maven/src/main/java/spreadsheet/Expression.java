@@ -11,7 +11,21 @@ public interface Expression {
      */
     public void set_references(Set<Cell> refs);
 
+    /**
+     * Obtiene las referencias de la expresion.
+     * @return
+     */
     public Set<Cell> get_references();
+
+    /**
+     * Ejecuta set_references en las expresiones de las que depende.
+     * 
+     * Si se ejecutara en los constructores, al actualizar la formula
+     * de una celda, primero ejecutariamos los sets a las dependencias
+     * (con valor nulo), y despues añadiriamos las referencias de la 
+     * formula anterior, lo cual seria bastante inutil.
+     */
+    public void push_references();
     
     /**
      * Retorna el valor de la formula.

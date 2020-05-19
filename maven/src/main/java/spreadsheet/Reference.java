@@ -9,8 +9,6 @@ public class Reference implements Expression {
 
     public Reference(Cell ref) {
         this.ref = ref;
-        this.ref.getFormula().set_references(refs);
-
     }
 
     @Override
@@ -26,5 +24,10 @@ public class Reference implements Expression {
     @Override
     public Set<Cell> get_references() {
         return this.refs;
-    } 
+    }
+
+    @Override
+    public void push_references() {
+        this.ref.getFormula().set_references(refs);
+    }
 }

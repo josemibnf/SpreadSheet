@@ -19,4 +19,9 @@ public abstract class MaybeValue implements Expression{
         return this.refs;
     }    
     
+    @Override
+    public void push_references() {
+        // No tiene a quien comunicar su existencia.
+    }
+
 }
