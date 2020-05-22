@@ -17,7 +17,7 @@ public class Reference implements Expression{
 
     @Override
     public MaybeValue evaluate() {
-        return ref_cell.evaluate();
+        return ref_cell.getValue();
     }
 
     @Override

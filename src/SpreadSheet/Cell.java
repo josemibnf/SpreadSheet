@@ -31,7 +31,7 @@ public class Cell {
         this.value = formula.evaluate();
     }
 
-    public MaybeValue evaluate() {
+    public MaybeValue getValue() {
         return this.value;
     }
 
@@ -96,4 +96,5 @@ public class Cell {
         }
         this.references.clear();
     }
+
 }

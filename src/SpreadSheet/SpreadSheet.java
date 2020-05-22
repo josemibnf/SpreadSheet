@@ -20,11 +20,18 @@ public class SpreadSheet {
 
     }
 
+    public static Expression plus(Expression expr1, int value2) {
+        // Crea i retorna una expressió corresponent a la
+        // suma de expr1 i de l’expressió que representa
+        // la constant value2
+        return new Plus(expr1, new SomeValue(value2));
+    }
+
     public static Expression plus(Expression expr1, String ref2) throws NullPointerException, InvalidCell {
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
-        return new Plus(expr1, new Reference(SHEET.getCell("ref2")));
+        return new Plus(expr1, new Reference(SHEET.getCell(ref2)));
     }
 
     public static Expression plus(int value1, Expression expr2) {
@@ -51,30 +58,32 @@ public class SpreadSheet {
     }
 
     public static Expression plus(String ref1, String ref2) throws NullPointerException, InvalidCell {
-        return new Plus(
-                new Reference(SHEET.getCell(ref1)),
-                new Reference(SHEET.getCell(ref2))
-        );
-
+        return new Plus(new Reference(SHEET.getCell(ref1)), new Reference(SHEET.getCell(ref2)));
     }
 
     public static Expression mult(Expression expr1, Expression expr2) {
         // Crea i retorna una expressió corresponent a la
-        // multiplicacion de les dues subexpressions
+        // multiplicacio de les dues subexpressions
         return new Mult(expr1, expr2);
 
     }
 
+    public static Expression mult(Expression expr1, int value2) {
+        // Crea i retorna una expressió corresponent a la
+        // multiplicacio de expr1 i de l’expressió que representa
+        // la constant value2
+        return new Mult(expr1, new SomeValue(value2));
+    }
+
     public static Expression mult(Expression expr1, String ref2) throws NullPointerException, InvalidCell {
         // Crea i retorna una expressió corresponent a la
-        // multiplicacion de expr1 i de l’expressió que representa
+        // multiplicacio de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
         return new Mult(expr1, new Reference(SHEET.getCell("ref2")));
     }
 
     public static Expression mult(int value1, Expression expr2) {
         return new Mult(new SomeValue(value1), expr2);
-
     }
 
     public static Expression mult(int value1, int value2) {
@@ -83,12 +92,10 @@ public class SpreadSheet {
 
     public static Expression mult(int value1, String ref2) throws NullPointerException, InvalidCell {
         return new Mult(new SomeValue(value1), new Reference(SHEET.getCell(ref2)));
-
     }
 
     public static Expression mult(String ref1, Expression expr2) throws NullPointerException, InvalidCell {
         return new Mult(new Reference(SHEET.getCell(ref1)), expr2);
-
     }
 
     public static Expression mult(String ref1, int value2) throws NullPointerException, InvalidCell {
@@ -96,10 +103,7 @@ public class SpreadSheet {
     }
 
     public static Expression mult(String ref1, String ref2) throws InvalidCell {
-        return new Mult(
-                new Reference(SHEET.getCell(ref1)),
-                new Reference(SHEET.getCell(ref2))
-        );
+        return new Mult(new Reference(SHEET.getCell(ref1)), new Reference(SHEET.getCell(ref2)));
     }
 
 
@@ -108,7 +112,7 @@ public class SpreadSheet {
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
         // SomeValue; si no hi ha, NoValue.
-        return SHEET.getCell(name).evaluate();
+        return SHEET.getCell(name).getValue();
     }
 
     public static void put(String name, Expression expr) throws InvalidCell {
@@ -142,6 +146,5 @@ public class SpreadSheet {
     public static void clear() {
         SHEET.clear();
     }
-
 
 }
