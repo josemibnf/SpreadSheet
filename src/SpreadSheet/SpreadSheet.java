@@ -121,7 +121,10 @@ public class SpreadSheet {
         // Això provocarà l’avaluació de la cel·la (la
         // qual cosa pot propagar la avaluació a d’altres
         // cel·les)
+        System.out.println("Value before put: " + SHEET.getCell(name).getValue());
         SHEET.getCell(name).set(expr);
+        System.out.println("Value after put: " + SHEET.getCell(name).getValue());
+
     }
 
     public static void put(String name, int value) throws InvalidCell {
@@ -130,7 +133,9 @@ public class SpreadSheet {
         // representació d’aquest int com Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+        System.out.println("Value before put: " + SHEET.getCell(name).getValue());
         SHEET.getCell(name).set(new SomeValue(value));
+        System.out.println("Value after put: " + SHEET.getCell(name).getValue());
     }
 
     public static void put(String name, String refName) throws NullPointerException, InvalidCell {
@@ -140,7 +145,9 @@ public class SpreadSheet {
         // referència com Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
+        System.out.println("Value before put: " + SHEET.getCell(name).getValue());
         SHEET.getCell(name).set(new Reference(SHEET.getCell(refName)));
+        System.out.println("Value after put: " + SHEET.getCell(name).getValue());
     }
 
     public static void clear() {
