@@ -22,25 +22,32 @@ public abstract class Operation implements Expression {
     public abstract int operate(int i1, int i2);
 
     /**
-     * Nos retorna el valor de operar el valor de las dos expresiones.
+     * Nos retorna el valor al realizar la operacion sobre las dos expresiones.
+     *
      */
-    @Override
     public MaybeValue evaluate() {
         MaybeValue val1 = exp1.evaluate();
         MaybeValue val2 = exp2.evaluate();
-        if (!val1.hasValue() || !val2.hasValue()) {
-            return NoValue.noValue();
-        }
+
+        if (!val1.hasValue() || !val2.hasValue()) return new NoValue();
+
         SomeValue value1 = (SomeValue) val1;
         SomeValue value2 = (SomeValue) val2;
+
         return new SomeValue(operate(value1.getValue(), value2.getValue()));
     }
 
+    /**
+     * Añade el conjunto de celdas que poseen la expresion, directa o indirectamente.
+     *
+     */
     public Set<Cell> references(){
-        Set<Cell> allCellsInvolved = new HashSet<>();
-        allCellsInvolved.addAll(exp1.references());
-        allCellsInvolved.addAll(exp2.references());
-        return allCellsInvolved;
+        Set<Cell> referenced_cells = new HashSet<>();
+
+        referenced_cells.addAll(exp1.references());
+        referenced_cells.addAll(exp2.references());
+
+        return referenced_cells;
     }
 
 

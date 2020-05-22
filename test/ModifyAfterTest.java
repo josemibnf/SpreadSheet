@@ -1,15 +1,16 @@
 import Exceptions.InvalidCell;
 import Value.SomeValue;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import static SpreadSheet.SpreadSheet.*;
 import static org.junit.Assert.*;
 
 public class ModifyAfterTest {
 
-    @Before
+    @BeforeEach
     public void setUpSheet() throws InvalidCell {
         put("a3", mult("a1", "a2"));
         assertFalse(get("a3").hasValue());
@@ -30,7 +31,7 @@ public class ModifyAfterTest {
         assertTrue(get("a3").hasValue());
     }
 
-    @After
+    @AfterEach
     public void clearSheet() {
         clear();
     }
