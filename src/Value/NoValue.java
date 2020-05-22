@@ -1,8 +1,12 @@
 package Value;
 
+import SpreadSheet.Cell;
+
+import java.util.Set;
+
 public class NoValue extends MaybeValue {
 
-    // Con esta clase seguimos el patron NullObject y Singleton.
+// Con esta clase seguimos el patron NullObject y Singleton.
 
     private static NoValue instance = new NoValue();
 
@@ -10,7 +14,7 @@ public class NoValue extends MaybeValue {
     }
 
     /**
-     * Retorna la instancia de java.main.NoValue.
+     * Retorna la instancia de NoValue.
      *
      * @return
      */
@@ -26,6 +30,28 @@ public class NoValue extends MaybeValue {
     @Override
     public MaybeValue evaluate() {
         return instance;
+    }
+
+
+    /**
+     * No podemos hacer set/get/push_references a una formula
+     * que apunte a NoValue, ya que al estar aplicando
+     * el patron Singleton, es el mismo objeto y las
+     * referencias se almacenarian de todas las celdas.
+     */
+    @Override
+    public void set_references(Set<Cell> refs) {
+    }
+
+    @Override
+    public Set<Cell> get_references() {
+
+        return null;
+    }
+
+    @Override
+    public void push_references() {
+
     }
 
 }

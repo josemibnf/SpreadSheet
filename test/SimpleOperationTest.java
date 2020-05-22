@@ -1,17 +1,15 @@
-import SpreadSheet.SpreadSheet;
 import Exceptions.InvalidCell;
+import SpreadSheet.SpreadSheet;
+import Value.SomeValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import Value.SomeValue;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertTrue;
 
-public class CellHasValueTest extends SpreadSheet {
+public class SimpleOperationTest extends SpreadSheet {
 
-    @BeforeEach
+    @Before
     public void setUpSheet() throws InvalidCell {
         put("a1", 42);
         put("a2", 20);
@@ -20,16 +18,16 @@ public class CellHasValueTest extends SpreadSheet {
 
     @Test
     public void cell_has_value_if_depends_on_value_cells() throws InvalidCell {
-        if (get("a3").hasValue()) {
-            SomeValue val = (SomeValue) get("a3");
-            System.out.println(val.getValue());
-        } else {
-            System.out.println("Is java.main.NoValue");
-        }
         assertTrue(get("a3").hasValue());
     }
 
-    @AfterEach
+    @Test
+    public void cell_evaluate_works_if_depends_on_value_cells() throws InvalidCell {
+        SomeValue val = (SomeValue) get("a3");
+        assertTrue(val.getValue()==840);
+    }
+
+    @After
     public void clearSheet() {
         clear();
     }

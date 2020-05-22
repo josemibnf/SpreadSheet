@@ -1,6 +1,7 @@
 package Expression;
 
 import SpreadSheet.Cell;
+import SpreadSheet.Expression;
 import Value.MaybeValue;
 import Value.NoValue;
 import Value.SomeValue;
@@ -12,11 +13,12 @@ public abstract class Operation implements Expression {
 
     public final Expression exp1;
     public final Expression exp2;
+    public Set<Cell> refs;
 
     public Operation(Expression exp1, Expression exp2) {
-        // Constructor ¿? No se en el pdf lo pone.
         this.exp1 = exp1;
         this.exp2 = exp2;
+        this.refs = new HashSet<>();
     }
 
     public abstract int operate(int i1, int i2);
@@ -39,11 +41,21 @@ public abstract class Operation implements Expression {
     }
 
     @Override
-    public Set<Cell> references() {
-        Set<Cell> set = new HashSet<Cell>();
-        set.addAll(exp1.references());
-        set.addAll(exp2.references());
-        return set;
+    public void set_references(Set<Cell> refs) {
+        this.refs.addAll(refs);
+        this.push_references();
     }
+
+    @Override
+    public Set<Cell> get_references() {
+        return this.refs;
+    }
+
+    @Override
+    public void push_references() {
+        this.exp1.set_references(this.refs);
+        this.exp2.set_references(this.refs);
+    }
+
 
 }

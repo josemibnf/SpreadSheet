@@ -1,5 +1,7 @@
 package Expression;
 
+import SpreadSheet.Expression;
+
 public class Plus extends Operation {
 
     public Plus(Expression exp1, Expression exp2) {

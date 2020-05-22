@@ -1,18 +1,9 @@
 package Value;
 
-import SpreadSheet.Cell;
-import Expression.Expression;
-
-import java.util.HashSet;
-import java.util.Set;
+import SpreadSheet.Expression;
 
 public abstract class MaybeValue implements Expression {
 
     public abstract boolean hasValue();
-
-    @Override
-    public Set<Cell> references() {
-        return new HashSet<Cell>();
-    }
 
 }

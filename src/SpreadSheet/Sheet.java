@@ -6,10 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Sheet {
-    // Esta es la clase java.main.Reference ¿??
-
     final static String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    private static int size;
+    private final int size;
     private final Map<String, Cell> CellSheet = new HashMap<String, Cell>();
 
     public Sheet(int size) {
