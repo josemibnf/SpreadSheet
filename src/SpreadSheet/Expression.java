@@ -1,6 +1,5 @@
 package SpreadSheet;
 
-import SpreadSheet.Cell;
 import Value.MaybeValue;
 
 import java.util.Set;
@@ -14,29 +13,12 @@ public interface Expression {
      * despues ejecuta push_references(), con el fin de
      * seguir actualizando la cadena.
      */
-    public void set_references(Set<Cell> refs);
-
-    /**
-     * Obtiene las referencias de la expresion.
-     * @return
-     */
-    public Set<Cell> get_references();
-
-    /**
-     * Ejecuta set_references en las expresiones de las que depende.
-     *
-     * Si se ejecutara en los constructores, al actualizar la formula
-     * de una celda, primero ejecutariamos los sets a las dependencias
-     * (con valor nulo), y despues añadiriamos las referencias de la
-     * formula anterior, lo cual seria bastante inutil.
-     */
-    public void push_references();
+    Set<Cell> references();
 
     /**
      * Retorna el valor de la formula.
-     * @return
      */
-    public MaybeValue evaluate();
+    MaybeValue evaluate();
 }
 
 // Las clases deben de ser inmutables..

@@ -8,21 +8,16 @@ import java.util.Set;
 public class SomeValue extends MaybeValue {
 
     private final int value;
-    private Set<Cell> refs;
 
     public SomeValue(int i) {
+        super(true);
         this.value = i;
-        this.refs = new HashSet<>();
     }
 
     public int getValue() {
         return this.value;
     }
 
-    @Override
-    public boolean hasValue() {
-        return true;
-    }
 
     @Override
     public MaybeValue evaluate() {
@@ -30,34 +25,16 @@ public class SomeValue extends MaybeValue {
     }
 
     @Override
-    public Set<Cell> get_references() {
-        return this.refs;
+    public Set<Cell> references() {
+        return new HashSet<>();
     }
 
     @Override
-    public void push_references() {
-        // No tiene a quien comunicar su existencia.
+    public boolean equals(Object obj){
+        if (getClass() != obj.getClass())
+            return false;
+        SomeValue sV = (SomeValue) obj;
+        return this.value == sV.value;
     }
 
-    @Override
-    public void set_references(Set<Cell> refs) {
-        this.refs.addAll(refs);
-        this.notify_references();
-    }
-
-    /**
-     * Se ejecuta en el mismo momento que las otras
-     * expresiones ejecutan push_references,
-     * pero en este caso, como hemos modificado un valor,
-     * hacemos que todas las celdas de la cadena revaluen
-     * sus valores.
-     *
-     * La primera celda deberia ser la mas cercana en referencia.
-     *
-     */
-    private void notify_references(){
-        for (Cell c : this.refs){
-            c.revaluate();
-        }
-    }
 }

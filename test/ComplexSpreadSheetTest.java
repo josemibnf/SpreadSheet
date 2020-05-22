@@ -1,15 +1,13 @@
-import SpreadSheet.SpreadSheet;
 import Exceptions.InvalidCell;
-
-import org.junit.Test;
 import Value.SomeValue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import static SpreadSheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class ComplexSpreadSheetTest extends SpreadSheet {
+public class ComplexSpreadSheetTest {
 
     @BeforeEach
     public void setUp() throws InvalidCell {

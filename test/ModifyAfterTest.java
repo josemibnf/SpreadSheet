@@ -1,15 +1,11 @@
-
-
-import static SpreadSheet.SpreadSheet.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import Exceptions.InvalidCell;
 import Value.SomeValue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static SpreadSheet.SpreadSheet.*;
+import static org.junit.Assert.*;
 
 public class ModifyAfterTest {
 
@@ -24,7 +20,7 @@ public class ModifyAfterTest {
         put("a1", 42);
         put("a2", 20);
         SomeValue val = (SomeValue) get("a3");
-        assertTrue(val.getValue()==840);
+        assertEquals(840, val.getValue());
     }
 
     @Test

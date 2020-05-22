@@ -122,7 +122,7 @@ public class SpreadSheet {
         // qual cosa pot propagar la avaluació a d’altres
         // cel·les)
         System.out.println("Value before put: " + SHEET.getCell(name).getValue());
-        SHEET.getCell(name).set(expr);
+        SHEET.setCell(name, expr);
         System.out.println("Value after put: " + SHEET.getCell(name).getValue());
 
     }
@@ -134,7 +134,7 @@ public class SpreadSheet {
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
         System.out.println("Value before put: " + SHEET.getCell(name).getValue());
-        SHEET.getCell(name).set(new SomeValue(value));
+        SHEET.setCell(name, value);
         System.out.println("Value after put: " + SHEET.getCell(name).getValue());
     }
 
@@ -146,7 +146,7 @@ public class SpreadSheet {
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
         System.out.println("Value before put: " + SHEET.getCell(name).getValue());
-        SHEET.getCell(name).set(new Reference(SHEET.getCell(refName)));
+        SHEET.setCell(name, new Reference(SHEET.getCell(refName)));
         System.out.println("Value after put: " + SHEET.getCell(name).getValue());
     }
 

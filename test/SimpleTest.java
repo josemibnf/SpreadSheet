@@ -1,12 +1,12 @@
-import SpreadSheet.SpreadSheet;
 import Exceptions.InvalidCell;
-
-import static org.junit.Assert.assertTrue;
-
+import SpreadSheet.SpreadSheet;
 import Value.SomeValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SimpleTest extends SpreadSheet {
 
@@ -24,7 +24,7 @@ public class SimpleTest extends SpreadSheet {
     @Test
     public void cell_has_value_if_evaluate_work_c2() throws InvalidCell {
         SomeValue val = (SomeValue) get("c2");
-        assertTrue(val.getValue()==42);
+        assertEquals(42, val.getValue());
     }
 
 
@@ -40,7 +40,7 @@ public class SimpleTest extends SpreadSheet {
     @Test
     public void cell_has_value_if_evaluate_work_a1() throws InvalidCell {
         SomeValue val = (SomeValue) get("a1");
-        assertTrue(val.getValue()==42);
+        assertEquals(42, val.getValue());
     }
 
     @After

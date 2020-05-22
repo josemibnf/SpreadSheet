@@ -13,12 +13,10 @@ public abstract class Operation implements Expression {
 
     public final Expression exp1;
     public final Expression exp2;
-    public Set<Cell> refs;
 
     public Operation(Expression exp1, Expression exp2) {
         this.exp1 = exp1;
         this.exp2 = exp2;
-        this.refs = new HashSet<>();
     }
 
     public abstract int operate(int i1, int i2);
@@ -30,31 +28,19 @@ public abstract class Operation implements Expression {
     public MaybeValue evaluate() {
         MaybeValue val1 = exp1.evaluate();
         MaybeValue val2 = exp2.evaluate();
-        if (val1.hasValue() && val2.hasValue()) {
-            SomeValue som1 = (SomeValue) val1;
-            SomeValue som2 = (SomeValue) val2;
-            return new SomeValue(operate(som1.getValue(), som2.getValue()));
-
-        } else {
+        if (!val1.hasValue() || !val2.hasValue()) {
             return NoValue.noValue();
         }
+        SomeValue value1 = (SomeValue) val1;
+        SomeValue value2 = (SomeValue) val2;
+        return new SomeValue(operate(value1.getValue(), value2.getValue()));
     }
 
-    @Override
-    public void set_references(Set<Cell> refs) {
-        this.refs.addAll(refs);
-        this.push_references();
-    }
-
-    @Override
-    public Set<Cell> get_references() {
-        return this.refs;
-    }
-
-    @Override
-    public void push_references() {
-        this.exp1.set_references(this.refs);
-        this.exp2.set_references(this.refs);
+    public Set<Cell> references(){
+        Set<Cell> allCellsInvolved = new HashSet<>();
+        allCellsInvolved.addAll(exp1.references());
+        allCellsInvolved.addAll(exp2.references());
+        return allCellsInvolved;
     }
 
 
