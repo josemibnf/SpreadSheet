@@ -1,11 +1,11 @@
 import Exceptions.InvalidCell;
-import SpreadSheet.SpreadSheet;
 import Expression.SomeValue;
-
+import SpreadSheet.SpreadSheet;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SimpleOperationTest extends SpreadSheet {
 
@@ -24,7 +24,7 @@ public class SimpleOperationTest extends SpreadSheet {
     @Test
     public void cell_evaluate_works_if_depends_on_value_cells() throws InvalidCell {
         SomeValue val = (SomeValue) get("a3");
-        assertTrue(val.getValue()==840);
+        assertTrue(val.getVALUE() == 840);
     }
 
     @AfterEach

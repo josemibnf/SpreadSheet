@@ -17,7 +17,6 @@ public class NoValue extends MaybeValue {
 
     /**
      * Retorna la instancia de NoValue.
-     *
      */
     public static NoValue noValue() {
         return instance;

@@ -6,22 +6,22 @@ import SpreadSheet.Expression;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Reference implements Expression{
-    private final Cell ref_cell;
+public class Reference implements Expression {
+    private final Cell REFERENCED_CELL;
 
     public Reference(Cell ref) {
-        this.ref_cell = ref;
+        this.REFERENCED_CELL = ref;
     }
 
     @Override
     public MaybeValue evaluate() {
-        return ref_cell.evaluate();
+        return REFERENCED_CELL.evaluate();
     }
 
     @Override
     public Set<Cell> references() {
         Set<Cell> referencedCell = new HashSet<>();
-        referencedCell.add(ref_cell);
+        referencedCell.add(REFERENCED_CELL);
         return referencedCell;
     }
 

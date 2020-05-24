@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import static SpreadSheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +20,7 @@ public class ModifyAfterTest {
         put("a1", 42);
         put("a2", 20);
         SomeValue val = (SomeValue) get("a3");
-        assertEquals(840, val.getValue());
+        assertEquals(840, val.getVALUE());
     }
 
     @Test

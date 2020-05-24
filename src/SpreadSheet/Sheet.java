@@ -5,27 +5,26 @@ import Expression.SomeValue;
 
 public class Sheet {
     private final int SIZE;
-    private Cell[][] CELLSHEET;
+    private Cell[][] CELL_SHEET;
     final static String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-    public Sheet(int size){
+    public Sheet(int size) {
         this.SIZE = size;
-        this.CELLSHEET = new Cell[size][size];
+        this.CELL_SHEET = new Cell[size][size];
         initializeCells();
     }
 
     private void initializeCells() {
-        int size = CELLSHEET.length;
+        int size = CELL_SHEET.length;
         for (int row = 0; row < size; row++) {
             for (int column = 0; column < size; column++) {
-                CELLSHEET[row][column] = new Cell();
+                CELL_SHEET[row][column] = new Cell();
             }
         }
     }
 
     /**
      * Devuelve el numero de fila correspondiente a la celda, (a1, c2 ...)
-     *
      */
     private static int getRow(String reference) {
         String[] cellId = reference.split("");
@@ -34,7 +33,6 @@ public class Sheet {
 
     /**
      * Devuelve el numero de columna correspondiente a la celda, (a1, c2 ...)
-     *
      */
     private static int getColumn(String reference) {
         String[] cellId = reference.split("");
@@ -43,18 +41,16 @@ public class Sheet {
 
     /**
      * Devuelve la celda correspondiente a ese identificador.
-     *
      */
     public Cell getCell(String reference) throws InvalidCell, NullPointerException {
         if (!isValidCell(reference)) {
             throw new InvalidCell();
         }
-        return CELLSHEET[getRow(reference)][getColumn(reference)]; // Buscamos la celda con esa referencia.
+        return CELL_SHEET[getRow(reference)][getColumn(reference)]; // Buscamos la celda con esa referencia.
     }
 
     /**
      * Comprueba si esa referencia entra en el rango de posibles celdas.
-     *
      */
     private boolean isValidCell(String reference) {
         return getRow(reference) <= SIZE && getColumn(reference) <= SIZE;
@@ -67,14 +63,21 @@ public class Sheet {
         initializeCells();
     }
 
+    /**
+     * Añade a la celda el valor pasada como parametro
+     */
+    public void setCell(String name, int value) throws InvalidCell {
+        setCell(name, new SomeValue(value));
+    }
+
+    /**
+     * Añade a la celda la expresion pasada como parametro
+     */
     public void setCell(String reference, Expression expr) throws InvalidCell {
         if (!isValidCell(reference)) {
             throw new InvalidCell();
         }
-        CELLSHEET[getRow(reference)][getColumn(reference)].insert(expr);
+        CELL_SHEET[getRow(reference)][getColumn(reference)].insert(expr);
     }
 
-    public void setCell(String name, int value) throws InvalidCell {
-        setCell(name, new SomeValue(value));
-    }
 }

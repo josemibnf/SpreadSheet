@@ -14,7 +14,7 @@ public class Cell {
 
     private List<Cell> observers = new ArrayList<>();
 
-    public Cell(){
+    public Cell() {
         formula = new NoValue();
         value = new NoValue();
     }
@@ -22,68 +22,61 @@ public class Cell {
     /**
      * Asigna a value el valor que posee la formula, si no lo sabemos aun será
      * NoValue.
-     *
      */
-    public void reevaluate(){
+    public void reevaluate() {
         evaluate();
         notifyObserver();
     }
 
     /**
      * Setter value
-     *
      */
-    public MaybeValue evaluate(){
-        MaybeValue value = formula.evaluate();
-        this.value = value;
+    public MaybeValue evaluate() {
+        value = formula.evaluate();
         return value;
     }
 
     /**
      * Getter value
-     *
      */
     public MaybeValue getValue() {
         return value;
     }
 
-    // Patro Observer
+    // Patron Observador
 
-    public void addObserver(Cell cell){
+    public void addObserver(Cell cell) {
         observers.add(cell);
     }
 
-    public void deleteObserver(Cell cell){
+    public void deleteObserver(Cell cell) {
         observers.remove(cell);
     }
 
-    private void updateObservers(Set<Cell> referencesToUpdate, Set<Cell> newReferences){
-        for(Cell oldReference : referencesToUpdate){
-            oldReference.deleteObserver(this);
-        }
-        for(Cell newReference : newReferences){
+    private void updateObservers(Set<Cell> oldReferences, Set<Cell> newReferences) {
+        for (Cell newReference : newReferences) {
             newReference.addObserver(this);
+        }
+
+        for (Cell oldReference : oldReferences) {
+            oldReference.deleteObserver(this);
         }
     }
 
-    private void notifyObserver(){
-        for(Cell observer : observers){
+    private void notifyObserver() {
+        for (Cell observer : observers) {
             observer.reevaluate();
         }
     }
 
-    public void insert(Expression exp){
-        set(exp);
-        reevaluate();
-    }
-
-    public void set(Expression exp) {
+    /**
+     * Actualiza una celda con la nueva expresion, lo que provoca una actualizacion de los observadores
+     */
+    public void insert(Expression expression) {
         Set<Cell> oldReferences = formula.references();
-        formula = exp;
+        formula = expression;
         Set<Cell> newReferences = formula.references();
         updateObservers(oldReferences, newReferences);
+        reevaluate();
     }
-
-
-
 }

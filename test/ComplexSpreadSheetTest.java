@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static SpreadSheet.SpreadSheet.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComplexSpreadSheetTest {
 
@@ -15,8 +15,10 @@ public class ComplexSpreadSheetTest {
         put("c2", mult("a2", "b2"));
         put("c3", plus("c1", "c2"));
 
-        put("a1", 10); put("b1", 20);
-        put("a2", 30); put("b2", 40);
+        put("a1", 10);
+        put("b1", 20);
+        put("a2", 30);
+        put("b2", 40);
     }
 
     @Test
@@ -31,7 +33,7 @@ public class ComplexSpreadSheetTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         clear();
     }
 }

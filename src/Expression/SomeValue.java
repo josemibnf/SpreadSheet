@@ -7,15 +7,15 @@ import java.util.Set;
 
 public class SomeValue extends MaybeValue {
 
-    private final int value;
+    private final int VALUE;
 
     public SomeValue(int i) {
         super(true);
-        this.value = i;
+        this.VALUE = i;
     }
 
-    public int getValue() {
-        return this.value;
+    public int getVALUE() {
+        return this.VALUE;
     }
 
 
@@ -30,11 +30,13 @@ public class SomeValue extends MaybeValue {
     }
 
     @Override
-    public boolean equals(Object obj){
-        if (getClass() != obj.getClass())
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
-        SomeValue sV = (SomeValue) obj;
-        return this.value == sV.value;
+        }
+
+        SomeValue other = (SomeValue) obj;
+        return this.VALUE == other.VALUE;
     }
 
 }
