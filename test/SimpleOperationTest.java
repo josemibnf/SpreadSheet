@@ -1,15 +1,15 @@
 import Exceptions.InvalidCell;
 import SpreadSheet.SpreadSheet;
 import Expression.SomeValue;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleOperationTest extends SpreadSheet {
 
-    @Before
+    @BeforeEach
     public void setUpSheet() throws InvalidCell {
         put("a1", 42);
         put("a2", 20);
@@ -27,7 +27,7 @@ public class SimpleOperationTest extends SpreadSheet {
         assertTrue(val.getValue()==840);
     }
 
-    @After
+    @AfterEach
     public void clearSheet() {
         clear();
     }
