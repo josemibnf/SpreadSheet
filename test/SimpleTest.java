@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-;
-
 public class SimpleTest extends SpreadSheet {
 
     @BeforeEach
@@ -26,14 +24,14 @@ public class SimpleTest extends SpreadSheet {
     @Test
     public void cell_has_value_if_evaluate_work_c2() throws InvalidCell {
         SomeValue val = (SomeValue) get("c2");
-        assertEquals(42, val.getVALUE());
+        assertEquals(42, val.getValue());
     }
 
 
     @Test
     public void cell_has_value_if_it_has_value_a1() throws InvalidCell {
         SomeValue val = (SomeValue) get("a1");
-        if (val.getVALUE() == 42) {
+        if (val.getValue() == 42) {
             System.out.println("x");
         }
         assertTrue(get("a1").hasValue());
@@ -42,7 +40,7 @@ public class SimpleTest extends SpreadSheet {
     @Test
     public void cell_has_value_if_evaluate_work_a1() throws InvalidCell {
         SomeValue val = (SomeValue) get("a1");
-        assertEquals(42, val.getVALUE());
+        assertEquals(42, val.getValue());
     }
 
     @AfterEach

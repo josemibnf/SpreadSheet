@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleOperationTest extends SpreadSheet {
 
@@ -24,7 +24,12 @@ public class SimpleOperationTest extends SpreadSheet {
     @Test
     public void cell_evaluate_works_if_depends_on_value_cells() throws InvalidCell {
         SomeValue val = (SomeValue) get("a3");
-        assertTrue(val.getVALUE() == 840);
+        assertEquals(840, val.getValue());
+    }
+
+    @Test
+    public void invalid_cell() {
+        Exception exception = assertThrows(InvalidCell.class, () -> put("z9", 42));
     }
 
     @AfterEach

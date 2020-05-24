@@ -9,8 +9,8 @@ public class Sheet {
     final static String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     public Sheet(int size) {
-        this.SIZE = size;
-        this.CELL_SHEET = new Cell[size][size];
+        SIZE = size;
+        CELL_SHEET = new Cell[size][size];
         initializeCells();
     }
 
@@ -43,7 +43,7 @@ public class Sheet {
      * Devuelve la celda correspondiente a ese identificador.
      */
     public Cell getCell(String reference) throws InvalidCell, NullPointerException {
-        if (!isValidCell(reference)) {
+        if (isValidCell(reference)) {
             throw new InvalidCell();
         }
         return CELL_SHEET[getRow(reference)][getColumn(reference)]; // Buscamos la celda con esa referencia.
@@ -53,7 +53,7 @@ public class Sheet {
      * Comprueba si esa referencia entra en el rango de posibles celdas.
      */
     private boolean isValidCell(String reference) {
-        return getRow(reference) <= SIZE && getColumn(reference) <= SIZE;
+        return getRow(reference) > SIZE || getColumn(reference) > SIZE;
     }
 
     /**
@@ -74,7 +74,7 @@ public class Sheet {
      * Añade a la celda la expresion pasada como parametro
      */
     public void setCell(String reference, Expression expr) throws InvalidCell {
-        if (!isValidCell(reference)) {
+        if (isValidCell(reference)) {
             throw new InvalidCell();
         }
         CELL_SHEET[getRow(reference)][getColumn(reference)].insert(expr);

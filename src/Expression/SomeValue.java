@@ -11,11 +11,11 @@ public class SomeValue extends MaybeValue {
 
     public SomeValue(int i) {
         super(true);
-        this.VALUE = i;
+        VALUE = i;
     }
 
-    public int getVALUE() {
-        return this.VALUE;
+    public int getValue() {
+        return VALUE;
     }
 
 
@@ -36,7 +36,7 @@ public class SomeValue extends MaybeValue {
         }
 
         SomeValue other = (SomeValue) obj;
-        return this.VALUE == other.VALUE;
+        return VALUE == other.VALUE;
     }
 
 }

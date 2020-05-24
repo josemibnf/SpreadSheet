@@ -20,7 +20,7 @@ public class ModifyAfterTest {
         put("a1", 42);
         put("a2", 20);
         SomeValue val = (SomeValue) get("a3");
-        assertEquals(840, val.getVALUE());
+        assertEquals(840, val.getValue());
     }
 
     @Test

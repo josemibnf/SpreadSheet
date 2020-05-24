@@ -10,7 +10,7 @@ public class Reference implements Expression {
     private final Cell REFERENCED_CELL;
 
     public Reference(Cell ref) {
-        this.REFERENCED_CELL = ref;
+        REFERENCED_CELL = ref;
     }
 
     @Override

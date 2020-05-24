@@ -12,8 +12,8 @@ public abstract class Operation implements Expression {
     public final Expression EXPRESSION2;
 
     public Operation(Expression exp1, Expression exp2) {
-        this.EXPRESSION1 = exp1;
-        this.EXPRESSION2 = exp2;
+        EXPRESSION1 = exp1;
+        EXPRESSION2 = exp2;
     }
 
     public abstract int operate(int i1, int i2);
@@ -30,7 +30,7 @@ public abstract class Operation implements Expression {
         SomeValue value1 = (SomeValue) val1;
         SomeValue value2 = (SomeValue) val2;
 
-        return new SomeValue(operate(value1.getVALUE(), value2.getVALUE()));
+        return new SomeValue(operate(value1.getValue(), value2.getValue()));
     }
 
     /**
