@@ -23,8 +23,6 @@ public class Cell {
      * Asigna a value el valor que posee la formula, si no lo sabemos aun será
      * NoValue.
      *
-     * En el PDF lo que hace es retornar el valor. ?¿?¿?
-     *
      */
     public void reevaluate(){
         evaluate();
