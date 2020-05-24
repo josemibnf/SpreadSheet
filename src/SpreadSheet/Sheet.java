@@ -4,31 +4,41 @@ import Exceptions.InvalidCell;
 import Expression.SomeValue;
 
 public class Sheet {
-    final static String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    private final int size;
-    private Cell[][] CellSheet;
+    private final int SIZE;
+    private Cell[][] CELLSHEET;
+    final static String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     public Sheet(int size){
-        this.size = size;
-        this.CellSheet = new Cell[size][size];
+        this.SIZE = size;
+        this.CELLSHEET = new Cell[size][size];
         initializeCells();
     }
 
     private void initializeCells() {
-        int size = CellSheet.length;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                CellSheet[i][j] = new Cell();
+        int size = CELLSHEET.length;
+        for (int row = 0; row < size; row++) {
+            for (int column = 0; column < size; column++) {
+                CELLSHEET[row][column] = new Cell();
             }
         }
     }
 
     /**
-     * Devuelve el Id correspondiente a la celda, (a1, c2 ...)
+     * Devuelve el numero de fila correspondiente a la celda, (a1, c2 ...)
      *
      */
-    private static String getId(int row, int column) {
-        return alphabet.charAt(row) + Integer.toString(column);
+    private static int getRow(String reference) {
+        String[] cellId = reference.split("");
+        return ALPHABET.indexOf(cellId[0]) + 1;
+    }
+
+    /**
+     * Devuelve el numero de columna correspondiente a la celda, (a1, c2 ...)
+     *
+     */
+    private static int getColumn(String reference) {
+        String[] cellId = reference.split("");
+        return Integer.parseInt(cellId[1]);
     }
 
     /**
@@ -36,13 +46,10 @@ public class Sheet {
      *
      */
     public Cell getCell(String reference) throws InvalidCell, NullPointerException {
-        String[] cellId = reference.split("");
-        int row = alphabet.indexOf(cellId[0]) + 1;
-        int column = Integer.parseInt(cellId[1]);
         if (!isValidCell(reference)) {
             throw new InvalidCell();
         }
-        return CellSheet[row][column]; // Buscamos la celda con esa referencia.
+        return CELLSHEET[getRow(reference)][getColumn(reference)]; // Buscamos la celda con esa referencia.
     }
 
     /**
@@ -50,29 +57,21 @@ public class Sheet {
      *
      */
     private boolean isValidCell(String reference) {
-        String[] cellId = reference.split("");
-        int row = alphabet.indexOf(cellId[0]) + 1;
-        int column = Integer.parseInt(cellId[1]);
-
-        return row <= size && column <= size;
-
+        return getRow(reference) <= SIZE && getColumn(reference) <= SIZE;
     }
 
     /**
-     * Borra todas las Celdas.
+     * Borra todas las celdas.
      */
     public void clear() {
         initializeCells();
     }
 
-    public void setCell(String name, Expression expr) throws InvalidCell {
-        String[] cellId = name.split("");
-        int row = alphabet.indexOf(cellId[0]) + 1;
-        int column = Integer.parseInt(cellId[1]);
-        if (!isValidCell(name)) {
+    public void setCell(String reference, Expression expr) throws InvalidCell {
+        if (!isValidCell(reference)) {
             throw new InvalidCell();
         }
-        CellSheet[row][column].insert(expr);
+        CELLSHEET[getRow(reference)][getColumn(reference)].insert(expr);
     }
 
     public void setCell(String name, int value) throws InvalidCell {
