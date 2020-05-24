@@ -1,6 +1,6 @@
 import Exceptions.InvalidCell;
 import SpreadSheet.SpreadSheet;
-import Value.SomeValue;
+import Expression.SomeValue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

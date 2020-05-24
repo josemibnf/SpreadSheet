@@ -1,7 +1,7 @@
 package SpreadSheet;
 
-import Value.MaybeValue;
-import Value.NoValue;
+import Expression.MaybeValue;
+import Expression.NoValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,6 @@ public class Cell {
         for(Cell oldReference : referencesToUpdate){
             oldReference.deleteObserver(this);
         }
-
         for(Cell newReference : newReferences){
             newReference.addObserver(this);
         }

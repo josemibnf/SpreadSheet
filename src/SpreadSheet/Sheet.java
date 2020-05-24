@@ -1,10 +1,7 @@
 package SpreadSheet;
 
 import Exceptions.InvalidCell;
-import Value.SomeValue;
-
-import java.util.HashMap;
-import java.util.Map;
+import Expression.SomeValue;
 
 public class Sheet {
     final static String alphabet = "abcdefghijklmnopqrstuvwxyz";

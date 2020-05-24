@@ -1,6 +1,6 @@
 import Exceptions.InvalidCell;
 import SpreadSheet.SpreadSheet;
-import Value.SomeValue;
+import Expression.SomeValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

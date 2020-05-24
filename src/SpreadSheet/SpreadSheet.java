@@ -3,8 +3,9 @@ package SpreadSheet;
 import Exceptions.InvalidCell;
 import Expression.Mult;
 import Expression.Plus;
-import Value.MaybeValue;
-import Value.SomeValue;
+import Expression.MaybeValue;
+import Expression.SomeValue;
+import Expression.Reference;
 
 public class SpreadSheet {
 
